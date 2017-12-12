@@ -12,25 +12,16 @@ class RecordsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = self
         Simulate.instance.beginSimulation()
         InstructorRecords.instance.orderByNewest()
-        print(InstructorRecords.instance.latestId)
-        //print(  Date(timeIntervalSinceNow: -245000.00).description)
-        
     }
     
-    
-    
     // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "EditLogSegue" else { return }
         let AddEditLogViewController = segue.destination as! AddEditLogViewController
@@ -38,8 +29,6 @@ class RecordsViewController: UIViewController {
         let selectedIndex = indexPath.row
         AddEditLogViewController.selectedIndex =  selectedIndex
     }
-    
-    
     
     @IBAction func unwindToRecordsViewController (segue: UIStoryboardSegue ){
          InstructorRecords.instance.orderByNewest()

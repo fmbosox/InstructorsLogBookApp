@@ -53,6 +53,7 @@ struct Student {
         }
     }
     
+    
     var  observation: String  {
         get {
             if let unwrappedObservation = _observation {

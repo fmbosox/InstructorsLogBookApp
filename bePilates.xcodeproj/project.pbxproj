@@ -18,6 +18,9 @@
 		7DC11D041FD3647F00B952EF /* Simulation&Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC11D031FD3647F00B952EF /* Simulation&Keys.swift */; };
 		7DC11D071FD3722800B952EF /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC11D061FD3722800B952EF /* RecordsViewController.swift */; };
 		7DC11D0A1FD3763F00B952EF /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC11D091FD3763F00B952EF /* LogCell.swift */; };
+		7DECCFDB1FDE837200394345 /* StudentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECCFDA1FDE837200394345 /* StudentsManager.swift */; };
+		7DF4E9AA1FDA648600F6C4E1 /* AddEditAStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4E9A91FDA648600F6C4E1 /* AddEditAStudentViewController.swift */; };
+		7DFF4AB91FD90D8600A707BE /* StudentsSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF4AB81FD90D8600A707BE /* StudentsSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		7DC11D031FD3647F00B952EF /* Simulation&Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Simulation&Keys.swift"; sourceTree = "<group>"; };
 		7DC11D061FD3722800B952EF /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		7DC11D091FD3763F00B952EF /* LogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
+		7DECCFDA1FDE837200394345 /* StudentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsManager.swift; sourceTree = "<group>"; };
+		7DF4E9A91FDA648600F6C4E1 /* AddEditAStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditAStudentViewController.swift; sourceTree = "<group>"; };
+		7DFF4AB81FD90D8600A707BE /* StudentsSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				7DC11D011FD33B9400B952EF /* InstrcutorRecords.swift */,
+				7DECCFDA1FDE837200394345 /* StudentsManager.swift */,
 				7DC11D031FD3647F00B952EF /* Simulation&Keys.swift */,
 			);
 			path = Singleton;
@@ -102,6 +109,8 @@
 			children = (
 				7DC11D061FD3722800B952EF /* RecordsViewController.swift */,
 				7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */,
+				7DFF4AB81FD90D8600A707BE /* StudentsSelectionViewController.swift */,
+				7DF4E9A91FDA648600F6C4E1 /* AddEditAStudentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,9 +197,12 @@
 			files = (
 				7DC11CEA1FD3272800B952EF /* AppDelegate.swift in Sources */,
 				7D5E529E1FD5237100B60C98 /* AddEditLogViewController.swift in Sources */,
+				7DFF4AB91FD90D8600A707BE /* StudentsSelectionViewController.swift in Sources */,
 				7DC11CFD1FD327BD00B952EF /* SessionLog.swift in Sources */,
 				7DC11D041FD3647F00B952EF /* Simulation&Keys.swift in Sources */,
 				7DC11D021FD33B9400B952EF /* InstrcutorRecords.swift in Sources */,
+				7DF4E9AA1FDA648600F6C4E1 /* AddEditAStudentViewController.swift in Sources */,
+				7DECCFDB1FDE837200394345 /* StudentsManager.swift in Sources */,
 				7DC11D0A1FD3763F00B952EF /* LogCell.swift in Sources */,
 				7DC11CFF1FD333F400B952EF /* Student.swift in Sources */,
 				7DC11D071FD3722800B952EF /* RecordsViewController.swift in Sources */,

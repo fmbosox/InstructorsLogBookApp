@@ -7,7 +7,10 @@
 //
 
 /*  Defined a struct PropertyKeys  to hold keys to use across the project.
-    Defined a Class Simulate with a Static property o Singleton, 1 property and a method.
+    Defined a Class Simulate with a class property o Singleton, 2 property and a method.
+ 
+ loadSimStudents() will set predefined students
+ beginSimulation() will set predefined values.
  
  An object of Simulate will help in the simulation enviroment.
  
@@ -31,21 +34,23 @@ class Simulate {
     
     static let instance = Simulate()
     
-  
-    let students: [Student] = [Student(id: 1, name: "Valeria", lastName: "Torres", email: "x", observation: nil),
-                               Student(id: 2, name: "Myrna", lastName: "Yee", email: "y", observation: nil),
-                               Student(id: 3, name: "Laura", lastName: "Garcia", email: "m", observation: nil),
-                               Student(id: 4, name: "Monica", lastName: "Nose", email: "j", observation: "Se cansa muy rapido"),
-                               Student(id: 5, name: "Lupita", lastName: "Rodriguez", email: "v", observation: nil)]
-    
-    
     //Methods section
     
     func beginSimulation () {
+        loadSimStudents()
         InstructorRecords.instance.latestId = 3
-        InstructorRecords.instance.info = [SessionLog(id: 1, type: SessionType.MAT ,date: Date(timeIntervalSinceNow: -445000.00), studentsInSession: self.students),
-                                          SessionLog(id: 2, type: SessionType.MAT ,date: Date(timeIntervalSinceNow: -245000.00), studentsInSession: self.students),
-                                          SessionLog(id: 3, type: SessionType.GAP ,date: Date(timeIntervalSinceNow: -45000.00), studentsInSession: self.students)
+        InstructorRecords.instance.info = [SessionLog(id: 1, type: SessionType.MAT ,date: Date(timeIntervalSinceNow: -445000.00), studentsInSession: StudentsManager.instance.info),
+                                          SessionLog(id: 2, type: SessionType.MAT ,date: Date(timeIntervalSinceNow: -245000.00), studentsInSession: StudentsManager.instance.info),
+                                          SessionLog(id: 3, type: SessionType.GAP ,date: Date(timeIntervalSinceNow: -45000.00), studentsInSession: StudentsManager.instance.info)
         ]
+    }
+    
+    func loadSimStudents() {
+        StudentsManager.instance.latestId = 5
+        StudentsManager.instance.info =  [Student(id: 1, name: "Valeria", lastName: "Torres", email: "x", observation: nil),
+                                          Student(id: 2, name: "Myrna", lastName: "Yee", email: "y", observation: nil),
+                                          Student(id: 3, name: "Laura", lastName: "Garcia", email: "m", observation: nil),
+                                          Student(id: 4, name: "Monica", lastName: "Nose", email: "j", observation: "Se cansa muy rapido"),
+                                          Student(id: 5, name: "Lupita", lastName: "Rodriguez", email: "v", observation: nil)]
     }
 }

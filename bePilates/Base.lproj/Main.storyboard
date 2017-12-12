@@ -178,113 +178,331 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DM-XP-pUG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Yiu-Wa-ZBc">
-                                        <rect key="frame" x="11" y="92.5" width="353" height="29"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <segments>
-                                            <segment title="GAP"/>
-                                            <segment title="MAT"/>
-                                            <segment title="CANCELLED"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.19607843137254902" green="0.39215686274509803" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </segmentedControl>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="hnf-Yk-1ac">
-                                        <rect key="frame" x="0.0" y="211" width="375" height="216"/>
-                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="534058660.20045298">
-                                            <!--2017-12-04 05:37:40 +0000-->
-                                        </date>
-                                    </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ke5-zt-tv0">
-                                        <rect key="frame" x="63" y="505" width="250" height="42"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="euG-Lf-deQ"/>
-                                            <constraint firstAttribute="height" constant="42" id="odX-oO-CxU"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="SAVE"/>
-                                        <connections>
-                                            <segue destination="29R-I5-kDF" kind="unwind" identifier="SaveUnwind" unwindAction="unwindToRecordsViewControllerWithSegue:" id="M61-EY-yRc"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE &amp; TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eau-la-dds">
-                                        <rect key="frame" x="11" y="192.5" width="185" height="18.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="185" id="ESQ-TF-m1l"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SESSION TYPE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9T-Hq-wyh">
-                                        <rect key="frame" x="11" y="74" width="223" height="18.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="223" id="CP7-f4-Q1N"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogM-yF-b0I">
-                                        <rect key="frame" x="339" y="33" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="ISk-Sg-jsT"/>
-                                            <constraint firstAttribute="height" constant="25" id="iTd-g6-3D1"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                        <state key="normal" title="X">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="closeButtonPressed:" destination="JVq-xH-mRZ" eventType="touchUpInside" id="2VF-le-6G6"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.27517055460000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <segmentedControl opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Yiu-Wa-ZBc">
+                                <rect key="frame" x="13" y="77.5" width="349" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="GAP"/>
+                                    <segment title="MAT"/>
+                                    <segment title="CANCELLED"/>
+                                </segments>
+                                <color key="tintColor" red="0.19607843137254902" green="0.39215686274509803" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="hnf-Yk-1ac">
+                                <rect key="frame" x="0.0" y="225.5" width="375" height="216"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="534058660.20045298">
+                                    <!--2017-12-04 05:37:40 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SESSION TYPE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9T-Hq-wyh">
+                                <rect key="frame" x="13" y="59" width="223" height="18.5"/>
                                 <constraints>
-                                    <constraint firstItem="eau-la-dds" firstAttribute="top" secondItem="Yiu-Wa-ZBc" secondAttribute="bottom" constant="72" id="B9h-Hl-9wT"/>
-                                    <constraint firstItem="hnf-Yk-1ac" firstAttribute="top" secondItem="eau-la-dds" secondAttribute="bottom" id="CJx-cN-ZVB"/>
-                                    <constraint firstItem="hnf-Yk-1ac" firstAttribute="leading" secondItem="7DM-XP-pUG" secondAttribute="leading" id="MxS-Hy-j5V"/>
-                                    <constraint firstItem="ke5-zt-tv0" firstAttribute="centerX" secondItem="7DM-XP-pUG" secondAttribute="centerX" id="Okx-92-yT7"/>
-                                    <constraint firstAttribute="trailing" secondItem="hnf-Yk-1ac" secondAttribute="trailing" id="UOt-yQ-20W"/>
-                                    <constraint firstItem="o9T-Hq-wyh" firstAttribute="top" secondItem="7DM-XP-pUG" secondAttribute="top" constant="74" id="cTk-ZG-g8y"/>
-                                    <constraint firstItem="Yiu-Wa-ZBc" firstAttribute="top" secondItem="o9T-Hq-wyh" secondAttribute="bottom" id="cZu-ux-vTv"/>
-                                    <constraint firstAttribute="trailing" secondItem="ogM-yF-b0I" secondAttribute="trailing" constant="11" id="fLp-Ty-a9a"/>
-                                    <constraint firstItem="Yiu-Wa-ZBc" firstAttribute="centerX" secondItem="7DM-XP-pUG" secondAttribute="centerX" id="iQg-dh-6Zu"/>
-                                    <constraint firstItem="eau-la-dds" firstAttribute="leading" secondItem="7DM-XP-pUG" secondAttribute="leading" constant="11" id="oLI-8S-4Z4"/>
-                                    <constraint firstAttribute="bottom" secondItem="ke5-zt-tv0" secondAttribute="bottom" constant="120" id="r6h-dJ-nMv"/>
-                                    <constraint firstItem="Yiu-Wa-ZBc" firstAttribute="top" secondItem="ogM-yF-b0I" secondAttribute="bottom" constant="34.5" id="tDN-bz-OHl"/>
-                                    <constraint firstItem="o9T-Hq-wyh" firstAttribute="leading" secondItem="7DM-XP-pUG" secondAttribute="leading" constant="11" id="vlT-kU-XOT"/>
-                                    <constraint firstItem="Yiu-Wa-ZBc" firstAttribute="leading" secondItem="7DM-XP-pUG" secondAttribute="leading" constant="11" id="wZU-s9-kCH"/>
+                                    <constraint firstAttribute="width" constant="223" id="CP7-f4-Q1N"/>
                                 </constraints>
-                            </view>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogM-yF-b0I">
+                                <rect key="frame" x="330" y="33" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="ISk-Sg-jsT"/>
+                                    <constraint firstAttribute="height" constant="25" id="iTd-g6-3D1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="JVq-xH-mRZ" eventType="touchUpInside" id="2VF-le-6G6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE &amp; TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eau-la-dds">
+                                <rect key="frame" x="13" y="207" width="185" height="18.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="ESQ-TF-m1l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ke5-zt-tv0">
+                                <rect key="frame" x="62" y="539" width="250" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="euG-Lf-deQ"/>
+                                    <constraint firstAttribute="height" constant="42" id="odX-oO-CxU"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title=" ADD STUDENTS"/>
+                                <connections>
+                                    <segue destination="NvB-43-GDG" kind="show" identifier="AddStudentsSegue" id="UJH-ot-9Sy"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.19607843137254902" green="0.39215686274509803" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.44652205709999998" green="0.55621826649999995" blue="0.70179957150000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="7DM-XP-pUG" firstAttribute="leading" secondItem="ePG-Fc-9un" secondAttribute="leading" id="54C-2q-TMz"/>
-                            <constraint firstItem="ePG-Fc-9un" firstAttribute="trailing" secondItem="7DM-XP-pUG" secondAttribute="trailing" id="Elv-IP-JSa"/>
-                            <constraint firstItem="7DM-XP-pUG" firstAttribute="top" secondItem="ePG-Fc-9un" secondAttribute="top" constant="-20" id="dv9-dX-FkG"/>
-                            <constraint firstItem="ePG-Fc-9un" firstAttribute="bottom" secondItem="7DM-XP-pUG" secondAttribute="bottom" id="pNN-Tw-J1u"/>
+                            <constraint firstItem="ePG-Fc-9un" firstAttribute="trailing" secondItem="Yiu-Wa-ZBc" secondAttribute="trailing" constant="13" id="Cpb-Sd-U3m"/>
+                            <constraint firstItem="Yiu-Wa-ZBc" firstAttribute="top" secondItem="o9T-Hq-wyh" secondAttribute="bottom" id="Qn5-bI-HJ3"/>
+                            <constraint firstItem="hnf-Yk-1ac" firstAttribute="leading" secondItem="ePG-Fc-9un" secondAttribute="leading" id="Uix-nk-23u"/>
+                            <constraint firstItem="hnf-Yk-1ac" firstAttribute="trailing" secondItem="ePG-Fc-9un" secondAttribute="trailing" id="VjI-rO-Gsa"/>
+                            <constraint firstItem="ePG-Fc-9un" firstAttribute="trailing" secondItem="ogM-yF-b0I" secondAttribute="trailing" constant="20" id="Xtj-S9-M7F"/>
+                            <constraint firstItem="ogM-yF-b0I" firstAttribute="top" secondItem="ePG-Fc-9un" secondAttribute="top" constant="13" id="ep2-Xx-V0G"/>
+                            <constraint firstItem="o9T-Hq-wyh" firstAttribute="top" secondItem="ePG-Fc-9un" secondAttribute="top" constant="39" id="k8G-16-x6I"/>
+                            <constraint firstItem="ke5-zt-tv0" firstAttribute="top" secondItem="hnf-Yk-1ac" secondAttribute="bottom" constant="97.5" id="kJh-Nt-oai"/>
+                            <constraint firstItem="o9T-Hq-wyh" firstAttribute="leading" secondItem="ePG-Fc-9un" secondAttribute="leading" constant="13" id="l7W-sK-g1P"/>
+                            <constraint firstItem="hnf-Yk-1ac" firstAttribute="top" secondItem="eau-la-dds" secondAttribute="bottom" id="nwH-be-HXH"/>
+                            <constraint firstItem="eau-la-dds" firstAttribute="leading" secondItem="ePG-Fc-9un" secondAttribute="leading" constant="13" id="ssP-4k-IhJ"/>
+                            <constraint firstItem="ke5-zt-tv0" firstAttribute="centerX" secondItem="i11-gc-u5m" secondAttribute="centerX" id="ujG-q5-l9V"/>
+                            <constraint firstItem="hnf-Yk-1ac" firstAttribute="centerY" secondItem="i11-gc-u5m" secondAttribute="centerY" id="ykF-xa-X0D"/>
+                            <constraint firstItem="Yiu-Wa-ZBc" firstAttribute="leading" secondItem="ePG-Fc-9un" secondAttribute="leading" constant="13" id="zXj-DQ-IcP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ePG-Fc-9un"/>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="hnf-Yk-1ac" id="gKb-2i-oRd"/>
                         <outlet property="sessionTypeSegmentedControl" destination="Yiu-Wa-ZBc" id="Sfh-oC-1sJ"/>
+                        <segue destination="jKP-P6-ksQ" kind="unwind" identifier="SaveUnwind" unwindAction="unwindToRecordsViewControllerWithSegue:" id="IPX-0h-U8V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3h-Zd-pt7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="29R-I5-kDF" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="jKP-P6-ksQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="998" y="34"/>
         </scene>
+        <!--Students -->
+        <scene sceneID="Ebv-2f-67H">
+            <objects>
+                <viewController id="ulm-zr-gmE" customClass="StudentsSelectionViewController" customModule="bePilates" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ksU-UC-HFt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dly-97-tZh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="518"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="StudentCell" editingAccessoryType="detailDisclosureButton" textLabel="U7m-Uw-JAZ" rowHeight="60" style="IBUITableViewCellStyleDefault" id="IuL-cG-LH6">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IuL-cG-LH6" id="LkO-a2-aZl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U7m-Uw-JAZ">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="59.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="18"/>
+                                                    <color key="textColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adf-wC-5je">
+                                <rect key="frame" x="0.0" y="582" width="375" height="85"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGM-Xt-dUE">
+                                        <rect key="frame" x="62" y="21" width="250" height="42"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="59P-b9-YPE"/>
+                                            <constraint firstAttribute="width" constant="250" id="H4z-YV-0fq"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="SAVE"/>
+                                        <connections>
+                                            <segue destination="goO-0G-F4C" kind="unwind" identifier="UnwindToAcceptSave" unwindAction="unwindToAddEditLogViewControllerWithSegue:" id="VUZ-z9-i6t"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMQ-yR-weK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="+ADD NEW STUDENT"/>
+                                        <connections>
+                                            <segue destination="kNa-tq-38r" kind="show" id="JHe-IL-fVF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fMQ-yR-weK" secondAttribute="bottom" id="3hb-qX-h7V"/>
+                                    <constraint firstItem="fMQ-yR-weK" firstAttribute="top" secondItem="Adf-wC-5je" secondAttribute="top" id="AO1-XW-PjO"/>
+                                    <constraint firstItem="xGM-Xt-dUE" firstAttribute="centerY" secondItem="Adf-wC-5je" secondAttribute="centerY" id="IGL-dR-dW0"/>
+                                    <constraint firstAttribute="trailing" secondItem="fMQ-yR-weK" secondAttribute="trailing" id="PUF-Gu-biX"/>
+                                    <constraint firstAttribute="height" constant="85" id="Wyt-yV-HNR"/>
+                                    <constraint firstItem="fMQ-yR-weK" firstAttribute="leading" secondItem="Adf-wC-5je" secondAttribute="leading" id="pKq-xS-z91"/>
+                                    <constraint firstItem="xGM-Xt-dUE" firstAttribute="centerX" secondItem="Adf-wC-5je" secondAttribute="centerX" id="xpj-lH-RnL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dly-97-tZh" firstAttribute="leading" secondItem="bH5-sn-c9w" secondAttribute="leading" id="0YR-MW-7Of"/>
+                            <constraint firstItem="Dly-97-tZh" firstAttribute="top" secondItem="bH5-sn-c9w" secondAttribute="top" id="7lR-If-hIS"/>
+                            <constraint firstItem="bH5-sn-c9w" firstAttribute="trailing" secondItem="Adf-wC-5je" secondAttribute="trailing" id="AgR-u4-73h"/>
+                            <constraint firstItem="Adf-wC-5je" firstAttribute="top" secondItem="Dly-97-tZh" secondAttribute="bottom" id="YAx-1N-gWq"/>
+                            <constraint firstItem="bH5-sn-c9w" firstAttribute="bottom" secondItem="Adf-wC-5je" secondAttribute="bottom" id="lhs-yU-hxm"/>
+                            <constraint firstItem="bH5-sn-c9w" firstAttribute="trailing" secondItem="Dly-97-tZh" secondAttribute="trailing" id="tzd-Al-tLH"/>
+                            <constraint firstItem="Adf-wC-5je" firstAttribute="leading" secondItem="bH5-sn-c9w" secondAttribute="leading" id="uBO-MK-lrm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bH5-sn-c9w"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Students " id="TLt-BQ-yx0">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="krN-kZ-o4c">
+                            <connections>
+                                <segue destination="goO-0G-F4C" kind="unwind" unwindAction="unwindToAddEditLogViewControllerWithSegue:" id="dCC-zV-Mel"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="0dA-1T-2bv">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="ulm-zr-gmE" id="PiZ-hw-Odk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="SaveLogButtonStatus" destination="xGM-Xt-dUE" id="AfS-7D-51v"/>
+                        <outlet property="addStudentButtonStatus" destination="fMQ-yR-weK" id="13h-Nf-Bye"/>
+                        <outlet property="tableView" destination="Dly-97-tZh" id="jsi-Wg-PdD"/>
+                        <segue destination="kNa-tq-38r" kind="show" identifier="ShowAStudentSegue" id="yrS-Z2-Jgh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BgM-s2-aKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="goO-0G-F4C" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2884" y="23.838080959520241"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VCi-MM-IyW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NvB-43-GDG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="chO-Yt-uWO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ulm-zr-gmE" kind="relationship" relationship="rootViewController" id="G0M-Ca-Ykt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rwY-xB-gtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1953" y="24"/>
+        </scene>
+        <!--NAME OF STUDENT-->
+        <scene sceneID="sRh-yI-vW7">
+            <objects>
+                <viewController id="kNa-tq-38r" customClass="AddEditAStudentViewController" customModule="bePilates" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hnS-MD-cIw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="E3x-8Z-kLK">
+                                <rect key="frame" x="22.5" y="129" width="330" height="242"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXm-I7-FuU">
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aza-oM-qhD">
+                                        <rect key="frame" x="0.0" y="31.5" width="330" height="30"/>
+                                        <color key="textColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*LAST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gue-4P-cf8">
+                                        <rect key="frame" x="0.0" y="74.5" width="330" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vzl-Aj-DDm">
+                                        <rect key="frame" x="0.0" y="106" width="330" height="30"/>
+                                        <color key="textColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZk-Km-Qiz">
+                                        <rect key="frame" x="0.0" y="149" width="330" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example@example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tMI-wy-iMX">
+                                        <rect key="frame" x="0.0" y="180.5" width="330" height="30"/>
+                                        <color key="textColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OBSERVATIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGt-hW-hI1">
+                                        <rect key="frame" x="0.0" y="223.5" width="330" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Sl7-yB-06B">
+                                <rect key="frame" x="22.5" y="379" width="330" height="137.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137.5" id="kBp-Qp-zIb"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+                                <color key="textColor" red="0.1960784314" green="0.3921568627" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.44705882349999998" green="0.55621826649999995" blue="0.70179957150000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Sl7-yB-06B" firstAttribute="top" secondItem="E3x-8Z-kLK" secondAttribute="bottom" constant="8" id="2QH-fx-31B"/>
+                            <constraint firstItem="Sl7-yB-06B" firstAttribute="centerX" secondItem="hnS-MD-cIw" secondAttribute="centerX" id="Cna-ZL-DzM"/>
+                            <constraint firstItem="E3x-8Z-kLK" firstAttribute="top" secondItem="Avn-Xh-lqv" secondAttribute="top" constant="65" id="EiE-Pf-CKa"/>
+                            <constraint firstItem="Avn-Xh-lqv" firstAttribute="trailing" secondItem="E3x-8Z-kLK" secondAttribute="trailing" constant="22.5" id="IVb-nO-qyj"/>
+                            <constraint firstItem="Sl7-yB-06B" firstAttribute="leading" secondItem="Avn-Xh-lqv" secondAttribute="leading" constant="22.5" id="LXs-nM-pSO"/>
+                            <constraint firstItem="Avn-Xh-lqv" firstAttribute="trailing" secondItem="Sl7-yB-06B" secondAttribute="trailing" constant="22.5" id="XGP-EB-oZ9"/>
+                            <constraint firstItem="E3x-8Z-kLK" firstAttribute="leading" secondItem="Avn-Xh-lqv" secondAttribute="leading" constant="22.5" id="bC6-11-VP9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Avn-Xh-lqv"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="NAME OF STUDENT" id="an9-JB-QVD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fMN-89-5QX">
+                            <connections>
+                                <segue destination="Ot0-eK-lRi" kind="unwind" unwindAction="unwindToStudentsSelectionViewControllerWithSegue:" id="cbr-6a-E4q"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cSB-FJ-A4M">
+                            <connections>
+                                <segue destination="Ot0-eK-lRi" kind="unwind" identifier="SaveAStudentUnwind" unwindAction="unwindToStudentsSelectionViewControllerWithSegue:" id="VG0-mc-ZFK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="tMI-wy-iMX" id="iW1-u8-tJv"/>
+                        <outlet property="lastNameTextField" destination="vzl-Aj-DDm" id="LaF-vC-jSW"/>
+                        <outlet property="nameTextField" destination="Aza-oM-qhD" id="Gc3-pJ-UGu"/>
+                        <outlet property="observationsTextView" destination="Sl7-yB-06B" id="kCC-lr-jYc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6hg-ni-sg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ot0-eK-lRi" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3876" y="24"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RrC-40-Ahf"/>
+        <segue reference="yrS-Z2-Jgh"/>
+        <segue reference="Zeh-ZV-Zn7"/>
     </inferredMetricsTieBreakers>
 </document>

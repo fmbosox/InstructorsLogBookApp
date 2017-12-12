@@ -5,7 +5,7 @@
 //  Created by Felipe Montoya on 12/2/17.
 //  Copyright © 2017 Felipe Montoya. All rights reserved.
 //
-/* Defined two types: SessionType to limit and make the code safer to use, then we have a struct SessionLog with 5 properties and 5 computed properties to protect our data of directly modifications.
+/* Defined two types: SessionType to limit and make the code safer to use, then we have a struct SessionLog with 4 properties and 4 computed properties to protect our data from directly modifications.
  
  An object of SessionLog will hold all the information from a  particular (Pilates, Yoga, Crossfit,etc) session/class
  
