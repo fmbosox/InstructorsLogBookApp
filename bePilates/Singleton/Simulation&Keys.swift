@@ -21,12 +21,18 @@ import Foundation
 struct PropertyKeys {
     // Add keys that you want to use acrros your project
     
-    
     static let DATE_FORMAT = "dd-MMM"
     static let HOUR_FORMAT = "K:mm a"
-    static let MAT_STRING = "MAT"
-    static let GAP_STRING = "GAP"
-    static let CANCELLED_STRING = "CANCELLED"
+    static let STUDENTS_PATH = "/students"
+    static let RECORD_PATH = "/record"
+    static let USERDEFAULTS_PATH =  "/userDefaults"
+    static let LOGID_PATH = "/userDefaults/logLatestID"
+    static let STUDENT_ID_PATH = "/userDefaults/studentLatestID"
+    static let LOGID_KEY = "logLatestID"
+    static let STUDENT_ID_KEY = "studentLatestID"
+    
+    static let dateFormatter: DateFormatter = DateFormatter()
+    static let hourFormatter:DateFormatter = DateFormatter()
     
 }
 
@@ -43,6 +49,7 @@ class Simulate {
                                           SessionLog(id: 2, type: SessionType.MAT ,date: Date(timeIntervalSinceNow: -245000.00), studentsInSession: StudentsManager.instance.info),
                                           SessionLog(id: 3, type: SessionType.GAP ,date: Date(timeIntervalSinceNow: -45000.00), studentsInSession: StudentsManager.instance.info)
         ]
+        
     }
     
     func loadSimStudents() {

@@ -49,6 +49,8 @@ class AddEditLogViewController: UIViewController {
           InstructorRecords.instance.info[index].date = datePicker.date
           InstructorRecords.instance.info[index].type = type
           InstructorRecords.instance.info[index].studentsInSession = students
+            
+            InstructorRecords.instance.saveEdited(index)
         } else {
             InstructorRecords.instance.saveNewLog( type: type, date: datePicker.date, studentsInSession: students)
         }

@@ -16,7 +16,9 @@ class RecordsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        Simulate.instance.beginSimulation()
+        DataService.instance.delegate = self
+     //  Simulate.instance.beginSimulation()
+        
         InstructorRecords.instance.orderByNewest()
     }
     
@@ -33,7 +35,6 @@ class RecordsViewController: UIViewController {
     @IBAction func unwindToRecordsViewController (segue: UIStoryboardSegue ){
          InstructorRecords.instance.orderByNewest()
         tableView.reloadData()
-          print(InstructorRecords.instance.latestId)
     }
 
 }
@@ -68,13 +69,23 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            InstructorRecords.instance.info.remove(at: indexPath.row)
+            InstructorRecords.instance.removeAt(indexPath.row)
             InstructorRecords.instance.orderByNewest()
             tableView.reloadData()
         }
     }
     
 }
+
+extension RecordsViewController: DataServiceDelegate {
+    
+    func loadRecordsToUI() {
+        InstructorRecords.instance.orderByNewest()
+        tableView.reloadData()
+    }
+    
+}
+
 
 
 

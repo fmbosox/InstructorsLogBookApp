@@ -23,7 +23,7 @@ class LogCell: UITableViewCell {
     @IBOutlet weak var infoContainerView: UIView!
     @IBOutlet weak var typeLabelContainerView: UIView!
     
-    let dateFormatter = DateFormatter()
+    let dateFormatter = DateFormatter() //Modificar y agregar nueva herramineta.
     let hourFormatter = DateFormatter()
  
     //methods 
@@ -53,12 +53,7 @@ class LogCell: UITableViewCell {
     
         dateLabel.text = dateFormatter.string(from: currentLog.date)
     
-        switch currentLog.type {
-            case .MAT: typeLabel.text = PropertyKeys.MAT_STRING
-            case .GAP: typeLabel.text = PropertyKeys.GAP_STRING
-            case .CANCELLED : typeLabel.text = PropertyKeys.CANCELLED_STRING
-            default: typeLabel.text = ""
-        }
+        typeLabel.text = currentLog.type.rawValue
     
         hourLabel.text = hourFormatter.string(from: currentLog.date)
     

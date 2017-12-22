@@ -18,12 +18,18 @@
 		7DC11D041FD3647F00B952EF /* Simulation&Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC11D031FD3647F00B952EF /* Simulation&Keys.swift */; };
 		7DC11D071FD3722800B952EF /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC11D061FD3722800B952EF /* RecordsViewController.swift */; };
 		7DC11D0A1FD3763F00B952EF /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC11D091FD3763F00B952EF /* LogCell.swift */; };
+		7DD803911FE5CBC300D03304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DD803901FE5CBC300D03304 /* GoogleService-Info.plist */; };
+		7DD803931FE603B800D03304 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD803921FE603B800D03304 /* DataService.swift */; };
+		7DE9B9241FEC69A600E16232 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9B9231FEC69A600E16232 /* Manager.swift */; };
 		7DECCFDB1FDE837200394345 /* StudentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECCFDA1FDE837200394345 /* StudentsManager.swift */; };
 		7DF4E9AA1FDA648600F6C4E1 /* AddEditAStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4E9A91FDA648600F6C4E1 /* AddEditAStudentViewController.swift */; };
 		7DFF4AB91FD90D8600A707BE /* StudentsSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF4AB81FD90D8600A707BE /* StudentsSelectionViewController.swift */; };
+		DCDEBC59BAEC41311218D7B0 /* Pods_bePilates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC8E3DCE5014F9510642219 /* Pods_bePilates.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DC8E3DCE5014F9510642219 /* Pods_bePilates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bePilates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70222AA75925D60507B82159 /* Pods-bePilates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bePilates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bePilates/Pods-bePilates.debug.xcconfig"; sourceTree = "<group>"; };
 		7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditLogViewController.swift; sourceTree = "<group>"; };
 		7DC11CE61FD3272800B952EF /* bePilates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bePilates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC11CE91FD3272800B952EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,9 +43,13 @@
 		7DC11D031FD3647F00B952EF /* Simulation&Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Simulation&Keys.swift"; sourceTree = "<group>"; };
 		7DC11D061FD3722800B952EF /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		7DC11D091FD3763F00B952EF /* LogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
+		7DD803901FE5CBC300D03304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7DD803921FE603B800D03304 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		7DE9B9231FEC69A600E16232 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		7DECCFDA1FDE837200394345 /* StudentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsManager.swift; sourceTree = "<group>"; };
 		7DF4E9A91FDA648600F6C4E1 /* AddEditAStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditAStudentViewController.swift; sourceTree = "<group>"; };
 		7DFF4AB81FD90D8600A707BE /* StudentsSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsSelectionViewController.swift; sourceTree = "<group>"; };
+		B8BD18B8E3A63F14970790CF /* Pods-bePilates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bePilates.release.xcconfig"; path = "Pods/Target Support Files/Pods-bePilates/Pods-bePilates.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +57,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCDEBC59BAEC41311218D7B0 /* Pods_bePilates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C5242F5A4DBCADA4371F844 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70222AA75925D60507B82159 /* Pods-bePilates.debug.xcconfig */,
+				B8BD18B8E3A63F14970790CF /* Pods-bePilates.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7DC11CDD1FD3272800B952EF = {
 			isa = PBXGroup;
 			children = (
 				7DC11CE81FD3272800B952EF /* bePilates */,
 				7DC11CE71FD3272800B952EF /* Products */,
+				2C5242F5A4DBCADA4371F844 /* Pods */,
+				945D8DD5DA419FA393D22415 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +103,7 @@
 				7DC11CF01FD3272800B952EF /* Assets.xcassets */,
 				7DC11CF21FD3272800B952EF /* LaunchScreen.storyboard */,
 				7DC11CF51FD3272800B952EF /* Info.plist */,
+				7DD803901FE5CBC300D03304 /* GoogleService-Info.plist */,
 			);
 			path = bePilates;
 			sourceTree = "<group>";
@@ -90,6 +113,7 @@
 			children = (
 				7DC11CFC1FD327BD00B952EF /* SessionLog.swift */,
 				7DC11CFE1FD333F400B952EF /* Student.swift */,
+				7DE9B9231FEC69A600E16232 /* Manager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +124,7 @@
 				7DC11D011FD33B9400B952EF /* InstrcutorRecords.swift */,
 				7DECCFDA1FDE837200394345 /* StudentsManager.swift */,
 				7DC11D031FD3647F00B952EF /* Simulation&Keys.swift */,
+				7DD803921FE603B800D03304 /* DataService.swift */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -123,6 +148,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		945D8DD5DA419FA393D22415 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DC8E3DCE5014F9510642219 /* Pods_bePilates.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -130,9 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DC11CF81FD3272800B952EF /* Build configuration list for PBXNativeTarget "bePilates" */;
 			buildPhases = (
+				316EB0B6ADC3831C3074809B /* [CP] Check Pods Manifest.lock */,
 				7DC11CE21FD3272800B952EF /* Sources */,
 				7DC11CE31FD3272800B952EF /* Frameworks */,
 				7DC11CE41FD3272800B952EF /* Resources */,
+				995616AC00B36238BD4E3A80 /* [CP] Embed Pods Frameworks */,
+				CD80A194C13C3833C563F50F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,12 +219,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DC11CF41FD3272800B952EF /* LaunchScreen.storyboard in Resources */,
+				7DD803911FE5CBC300D03304 /* GoogleService-Info.plist in Resources */,
 				7DC11CF11FD3272800B952EF /* Assets.xcassets in Resources */,
 				7DC11CEF1FD3272800B952EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		316EB0B6ADC3831C3074809B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bePilates-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		995616AC00B36238BD4E3A80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-bePilates/Pods-bePilates-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bePilates/Pods-bePilates-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD80A194C13C3833C563F50F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bePilates/Pods-bePilates-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7DC11CE21FD3272800B952EF /* Sources */ = {
@@ -198,9 +293,11 @@
 				7DC11CEA1FD3272800B952EF /* AppDelegate.swift in Sources */,
 				7D5E529E1FD5237100B60C98 /* AddEditLogViewController.swift in Sources */,
 				7DFF4AB91FD90D8600A707BE /* StudentsSelectionViewController.swift in Sources */,
+				7DD803931FE603B800D03304 /* DataService.swift in Sources */,
 				7DC11CFD1FD327BD00B952EF /* SessionLog.swift in Sources */,
 				7DC11D041FD3647F00B952EF /* Simulation&Keys.swift in Sources */,
 				7DC11D021FD33B9400B952EF /* InstrcutorRecords.swift in Sources */,
+				7DE9B9241FEC69A600E16232 /* Manager.swift in Sources */,
 				7DF4E9AA1FDA648600F6C4E1 /* AddEditAStudentViewController.swift in Sources */,
 				7DECCFDB1FDE837200394345 /* StudentsManager.swift in Sources */,
 				7DC11D0A1FD3763F00B952EF /* LogCell.swift in Sources */,
@@ -340,6 +437,7 @@
 		};
 		7DC11CF91FD3272800B952EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70222AA75925D60507B82159 /* Pods-bePilates.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -355,6 +453,7 @@
 		};
 		7DC11CFA1FD3272800B952EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8BD18B8E3A63F14970790CF /* Pods-bePilates.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

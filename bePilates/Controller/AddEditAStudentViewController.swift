@@ -60,6 +60,7 @@ class AddEditAStudentViewController: UIViewController {
             StudentsManager.instance.info[unwrappedSelectedIndex].lastName = lastNameTextField.text!
             StudentsManager.instance.info[unwrappedSelectedIndex].email =  emailTextField.text!
             StudentsManager.instance.info[unwrappedSelectedIndex].observation = observationsTextView.text
+            StudentsManager.instance.saveEdited(unwrappedSelectedIndex)
         } else { // A New Student!
             if let name = nameTextField.text, let lastName = lastNameTextField.text{
                 if let email = emailTextField.text {

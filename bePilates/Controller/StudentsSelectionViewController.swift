@@ -114,7 +114,7 @@ extension StudentsSelectionViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         oneTimeEvent = true
         if editingStyle == UITableViewCellEditingStyle.delete {
-            StudentsManager.instance.info.remove(at: indexPath.row)
+            StudentsManager.instance.removeAt(indexPath.row)
            tableView.reloadData()
         
         }
