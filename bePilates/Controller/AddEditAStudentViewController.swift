@@ -9,23 +9,26 @@
 import UIKit
 
 class AddEditAStudentViewController: UIViewController {
-
+    
+    // MARK: - Variables
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var observationsTextView: UITextView!
+    @IBOutlet weak var stackViewofForm: UIStackView!
     
     var selectedIndex: Int?
 
-    // It dismiss the Keyboard and sets the view to the corresponding initial state.
+        // MARK: - Initial Setup
+
     @objc   func dismissKeyboard() {
-        if self.view.frame.origin.y  != 0 {
-            view.frame.origin.y = 0
+        if stackViewofForm.frame.origin.y   != 109 {
+          stackViewofForm.frame.origin.y = 109
         }
         view.endEditing(true)
     }
     
-    // Sets the inital configuration of the viewController.
     func initalConfiguration() {
         nameTextField.delegate = self
         lastNameTextField.delegate = self
@@ -53,7 +56,8 @@ class AddEditAStudentViewController: UIViewController {
          initalConfiguration()
     }
 
-    // Saves a new or edited Student.
+        // MARK: - Saving a Student.
+    
     func saveStudent() {
        if let unwrappedSelectedIndex = selectedIndex  {
             StudentsManager.instance.info[unwrappedSelectedIndex].name = nameTextField.text!
@@ -72,7 +76,6 @@ class AddEditAStudentViewController: UIViewController {
         }
     }
     
-    // Enables the Save Button given the correct conditions.
     func enableRightBarButtonItem() {
         if let text1 = nameTextField.text, let text2 = lastNameTextField.text {
             if !text1.isEmpty && !text2.isEmpty {
@@ -121,16 +124,12 @@ extension AddEditAStudentViewController: UITextViewDelegate {
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        if self.view.frame.origin.y  == 0 {
-            self.view.frame.origin.y -= 200
-        }
+            stackViewofForm.frame.origin.y -= 195
         return true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if self.view.frame.origin.y  != 0 {
-            self.view.frame.origin.y = 0
-        }
+            stackViewofForm.frame.origin.y = 109
     }
     
 }

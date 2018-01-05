@@ -18,10 +18,14 @@ import Foundation
 
 class StudentsManager {
     
+    //MARK: - Variables
+    
     static let instance = StudentsManager ()
     var info = [Student]()
     var latestId = Int()
-
+    
+    //MARK: - Methods
+    
     func saveNewStudent( name: String, lastName: String, email: String, observation: String?) {
             StudentsManager.instance.latestId += 1
             let newID = StudentsManager.instance.latestId
@@ -32,6 +36,8 @@ class StudentsManager {
     }
     
 }
+
+    //MARK: - Manager protocol methods
 
 extension StudentsManager: Manager {
     

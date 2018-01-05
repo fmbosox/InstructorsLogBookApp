@@ -38,11 +38,13 @@ protocol DataServiceDelegate {
 
 class DataService {
     
+    //MARK: - Variables
+    
     static let instance = DataService()
     var delegate: DataServiceDelegate?
     let reference = Database.database().reference()
     
-    //MARK: Methods
+    //MARK: - Methods
     
     func getStudents (data: DataSnapshot ){
             for nestedData in data.children {

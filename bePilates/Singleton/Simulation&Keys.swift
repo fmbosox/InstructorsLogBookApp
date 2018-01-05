@@ -21,8 +21,8 @@ import Foundation
 struct PropertyKeys {
     // Add keys that you want to use acrros your project
     
-    static let DATE_FORMAT = "dd-MMM"
-    static let HOUR_FORMAT = "K:mm a"
+    static let DATE_FORMAT = "EEE, dd-MMM"
+    static let HOUR_FORMAT = "h:mm a"
     static let STUDENTS_PATH = "/students"
     static let RECORD_PATH = "/record"
     static let USERDEFAULTS_PATH =  "/userDefaults"
@@ -39,8 +39,6 @@ struct PropertyKeys {
 class Simulate {
     
     static let instance = Simulate()
-    
-    //Methods section
     
     func beginSimulation () {
         loadSimStudents()

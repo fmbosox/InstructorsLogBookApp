@@ -20,16 +20,16 @@ import Foundation
 
 class InstructorRecords {
     
+    //MARK: - Variables
+    
     static let instance = InstructorRecords ()
     var info = [SessionLog]()
     var latestId = Int()
 
-    //MARK: Methods
+    //MARK: - Methods
     
     func saveNewLog( type: SessionType, date: Date, studentsInSession: [Student]) {
             InstructorRecords.instance.latestId += 1
-        //let dateComponents = DateComponents(minute: 30)
-      //  trying to manipulate date.
             let newID = InstructorRecords.instance.latestId
             let newLog = SessionLog(id: newID, type: type, date: date, studentsInSession: studentsInSession)
             InstructorRecords.instance.info.append(newLog)
@@ -44,6 +44,8 @@ class InstructorRecords {
     }
 
 }
+
+    //MARK: - Manager protocol methods
 
 extension InstructorRecords: Manager {
     

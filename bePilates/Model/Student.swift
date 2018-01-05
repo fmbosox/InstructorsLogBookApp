@@ -8,7 +8,7 @@
 
 /*  Defined a struct Student with 5 properties and 5 computed properties to protect our data of directly modifications. It has 2 initializers, one of them can return nil. It has a method.
  
- The convertLogToJSON method converts the Student into a Dictonary, useful to save it to the database.
+ The convertStudentToJSON method converts the Student into a Dictonary, useful to save it to the database.
  
  An object of Student will have all the information we need from a Student
  
@@ -23,7 +23,7 @@ struct Student {
     private var _observation: String?
     private let _id: Int
     
-    //MARK: Computed properties
+    //MARK: - Computed properties
     
     var  id: Int {
         return _id
@@ -66,7 +66,7 @@ struct Student {
         }
     }
     
-    //MARK: Methods
+    //MARK: - Methods
     
     init(id: Int, name: String, lastName: String, email: String, observation: String?) {
             _id = id

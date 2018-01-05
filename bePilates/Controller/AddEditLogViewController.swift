@@ -9,20 +9,38 @@
 import UIKit
 
 class AddEditLogViewController: UIViewController {
+    
+        //MARK: Variables
+    
+    @IBOutlet weak var cancelledSessionSwitch: UISwitch!
     @IBOutlet weak var sessionTypeSegmentedControl: UISegmentedControl!
-    
     @IBOutlet weak var datePicker: UIDatePicker!
-    var selectedIndex: Int?
+    @IBOutlet weak var addStudentsButton: UIButton!
+    @IBOutlet weak var cancelSessionButton: UIButton!
+    @IBOutlet weak var recordLabel: UILabel!
     
+    var selectedIndex: Int?
     var students: [Student] = []
     
-    // In case RecordsViewController passes a Index this ViewController has to set the initial information based on the Log that the users wants to see, using the following method
+      //MARK: Initial Setup
+    
+    /* In case RecordsViewController passes an Index, AddEditLogViewController has to set the initial information based on the Log
+        that the users wants to see, using the following method
+    */
     func setLogInformation(with log:SessionLog) {
-        switch log.type {
-        case .GAP: sessionTypeSegmentedControl.selectedSegmentIndex = 0
-        case .MAT: sessionTypeSegmentedControl.selectedSegmentIndex = 1
-        case .CANCELLED : sessionTypeSegmentedControl.selectedSegmentIndex = 2
-        default: return
+        recordLabel.text = "Record Info"
+        switch log.type as SessionType {
+        case .GAP, .CANCELLED_GAP: sessionTypeSegmentedControl.selectedSegmentIndex = 0
+        case .MAT, .CANCELLED_MAT: sessionTypeSegmentedControl.selectedSegmentIndex = 1
+        }
+        if  log.type == .CANCELLED_GAP || log.type == .CANCELLED_MAT{
+            cancelSessionButton.isHidden = false
+            addStudentsButton.isHidden = !cancelSessionButton.isHidden
+            cancelledSessionSwitch.isOn = true
+        } else {
+            cancelSessionButton.isHidden = true
+            addStudentsButton.isHidden = !cancelSessionButton.isHidden
+            addStudentsButton.setTitle("VIEW STUDENTS", for: UIControlState.normal)
         }
         datePicker.date = log.date
         students = log.studentsInSession
@@ -32,27 +50,33 @@ class AddEditLogViewController: UIViewController {
         super.viewDidLoad()
         if let index = selectedIndex {
             setLogInformation(with: InstructorRecords.instance.info[index])
+        } else {
+            addStudentsButton.isHidden = true
+            cancelSessionButton.isHidden = true
         }
     }
     
-    //This method is called when we want to create and save a new log or when we want to commit and submit the changes of one of the objects in the array.
+    //MARK: Saving a Log
+    
+    /*This method is called when we want to create and save a new log,
+     or when we want to commit and submit the changes of one of the objects in the array.
+     */
     func saveLogInformation() {
         let type: SessionType!
         switch sessionTypeSegmentedControl.selectedSegmentIndex {
-            case 0: type = SessionType.GAP
-            case 1: type = SessionType.MAT
-            case 2: type = SessionType.CANCELLED
+            case 0: type = !cancelledSessionSwitch.isOn ?    SessionType.GAP :  SessionType.CANCELLED_GAP
+            case 1: type =  !cancelledSessionSwitch.isOn ?    SessionType.MAT :  SessionType.CANCELLED_MAT
             default: return
             }
         
          if let index = selectedIndex {
           InstructorRecords.instance.info[index].date = datePicker.date
           InstructorRecords.instance.info[index].type = type
-          InstructorRecords.instance.info[index].studentsInSession = students
+            InstructorRecords.instance.info[index].studentsInSession =  !cancelledSessionSwitch.isOn ?  students : []
             
             InstructorRecords.instance.saveEdited(index)
         } else {
-            InstructorRecords.instance.saveNewLog( type: type, date: datePicker.date, studentsInSession: students)
+            InstructorRecords.instance.saveNewLog( type: type, date: datePicker.date, studentsInSession:  !cancelledSessionSwitch.isOn ?  students : [])
         }
     }
     
@@ -74,8 +98,31 @@ class AddEditLogViewController: UIViewController {
         }
     }
     
-    @IBAction func closeButtonPressed(_ sender: Any) {
+    // MARK: - User interaction methods
+    
+    func enableButton() {
+        addStudentsButton.isHidden =  !cancelledSessionSwitch.isOn ? false : true
+        cancelSessionButton.isHidden =  cancelledSessionSwitch.isOn ? false : true
+    }
+    
+    @IBAction func valueChangedInSegmentedControl(_ sender: UISegmentedControl) {
+        enableButton()
+    }
+    
+        @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func switchToggle(_ sender: UISwitch) {
+        cancelledSessionSwitch.isOn = sender.isOn
+     if sessionTypeSegmentedControl.selectedSegmentIndex != UISegmentedControlNoSegment {
+          enableButton()
+        }
+    }
+
+    @IBAction func cancelSessionButtonPressed(_ sender: Any) {
+        saveLogInformation()
+        performSegue(withIdentifier: "SaveUnwind", sender: nil)
     }
     
 }

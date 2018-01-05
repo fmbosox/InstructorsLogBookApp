@@ -17,7 +17,8 @@ import Foundation
 enum SessionType: String {
     case MAT
     case GAP
-    case CANCELLED
+    case CANCELLED_MAT  = "XMAT"
+    case CANCELLED_GAP = "XGAP"
 }
 
 struct SessionLog {
@@ -26,7 +27,7 @@ struct SessionLog {
     private var _date: Date
     private var _studentsInSession : [Student]?
     
-    //MARK: Computed properties
+    //MARK: - Computed properties
     
     var  id: Int {
         return _id
@@ -66,7 +67,7 @@ struct SessionLog {
     }
     
     
-    //MARK: Methods
+    //MARK: -Methods
     
     init(id:Int, type: SessionType, date: Date, studentsInSession: [Student]) {
             _id = id
