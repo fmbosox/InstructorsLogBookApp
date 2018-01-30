@@ -32,6 +32,7 @@ class AddEditLogViewController: UIViewController {
         switch log.type as SessionType {
         case .GAP, .CANCELLED_GAP: sessionTypeSegmentedControl.selectedSegmentIndex = 0
         case .MAT, .CANCELLED_MAT: sessionTypeSegmentedControl.selectedSegmentIndex = 1
+        case .AERO, .CANCELLED_AERO: sessionTypeSegmentedControl.selectedSegmentIndex = 2
         }
         if  log.type == .CANCELLED_GAP || log.type == .CANCELLED_MAT{
             cancelSessionButton.isHidden = false
@@ -48,6 +49,8 @@ class AddEditLogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         if let index = selectedIndex {
             setLogInformation(with: InstructorRecords.instance.info[index])
         } else {
@@ -66,7 +69,8 @@ class AddEditLogViewController: UIViewController {
         switch sessionTypeSegmentedControl.selectedSegmentIndex {
             case 0: type = !cancelledSessionSwitch.isOn ?    SessionType.GAP :  SessionType.CANCELLED_GAP
             case 1: type =  !cancelledSessionSwitch.isOn ?    SessionType.MAT :  SessionType.CANCELLED_MAT
-            default: return
+            case 2: type =  !cancelledSessionSwitch.isOn ?    SessionType.AERO :  SessionType.CANCELLED_AERO
+            default: fatalError()
             }
         
          if let index = selectedIndex {

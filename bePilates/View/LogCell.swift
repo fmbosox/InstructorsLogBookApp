@@ -27,12 +27,13 @@ class LogCell: UITableViewCell {
     @IBOutlet weak var infoContainerView: UIView!
     @IBOutlet weak var typeLabelContainerView: UIView!
     
-    let dateFormatter = PropertyKeys.dateFormatter
-    let hourFormatter = PropertyKeys.hourFormatter
+    let dateFormatter: DateFormatter = DateFormatter()
+    let hourFormatter: DateFormatter = DateFormatter()
  
     //Mark: Initial drawing
     
     func drawCell() {
+
         infoContainerView.layer.borderWidth = 0.97
         infoContainerView.layer.masksToBounds = false
         infoContainerView.layer.cornerRadius = 10.0

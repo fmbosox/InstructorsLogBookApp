@@ -23,7 +23,7 @@ class AddEditAStudentViewController: UIViewController {
         // MARK: - Initial Setup
 
     @objc   func dismissKeyboard() {
-        if stackViewofForm.frame.origin.y   != 109 {
+        if stackViewofForm.frame.origin.y   != stackViewofForm.frame.origin.y  {
           stackViewofForm.frame.origin.y = 109
         }
         view.endEditing(true)
@@ -129,7 +129,7 @@ extension AddEditAStudentViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-            stackViewofForm.frame.origin.y = 109
+            stackViewofForm.frame.origin.y += 195
     }
     
 }

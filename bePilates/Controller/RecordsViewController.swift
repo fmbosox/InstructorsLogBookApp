@@ -12,7 +12,6 @@ class RecordsViewController: UIViewController {
     
     //MARK: Variables
     
-    @IBOutlet weak var instructorNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var logForSelectedRow: SessionLog?
     var tableViewCellAnimationType: AnimationType = .none
@@ -25,7 +24,7 @@ class RecordsViewController: UIViewController {
         tableView.dataSource = self
         DataService.instance.delegate = self
         tableViewCellAnimationType = .scrolling
-        instructorNameLabel.text = "Linda Valdez"
+        navigationItem.title = "Linda Valdez"
         InstructorRecords.instance.orderByNewest()
     }
     
@@ -33,15 +32,26 @@ class RecordsViewController: UIViewController {
         aButtonAnimation(animate: sender )
     }
     
+    @IBAction func instructorIconPressed(_ sender: Any) {
+        performSegue(withIdentifier: "showReportSegue", sender: nil)
+    }
+    
     // MARK:  Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "EditLogSegue" else { return }
+        if segue.identifier == "EditLogSegue" {
         let AddEditLogViewController = segue.destination as! AddEditLogViewController
         let indexPathForSelectedRow = tableView.indexPathForSelectedRow!
         let selectedIndex = indexPathForSelectedRow.row
         logForSelectedRow = InstructorRecords.instance.info[selectedIndex]
         AddEditLogViewController.selectedIndex =  selectedIndex
+        } else if segue.identifier == "showReportSegue" {
+            let startDate = Date(timeInterval: -2600000, since: Date())
+            let endDate = Date()
+            let aPDF = ReportMaker(instructorName: "Linda Valdez", email: "linda.trece@hotmail.com", startDate: startDate, endDate: endDate).makePDF()
+            let PDFViewerViewController = segue.destination as! PDFViewerViewController
+            PDFViewerViewController.pdfDocument = aPDF
+        }
     }
     
     @IBAction func unwindToRecordsViewController (segue: UIStoryboardSegue ){

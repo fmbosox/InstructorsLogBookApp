@@ -20,6 +20,12 @@ import Foundation
 
 struct PropertyKeys {
     // Add keys that you want to use acrros your project
+    static let MAT_PRICE = 120
+    static let GAP_PRICE = 140
+    static let CANCELLED_MAT_PRICE = 60
+    static let  CANCELLED_GAP_PRICE = 70
+    static let AERO_PRICE = 130
+    static let CANCELLED_AERO_PRICE = 65
     
     static let DATE_FORMAT = "EEE, dd-MMM"
     static let HOUR_FORMAT = "h:mm a"
@@ -30,6 +36,7 @@ struct PropertyKeys {
     static let STUDENT_ID_PATH = "/userDefaults/studentLatestID"
     static let LOGID_KEY = "logLatestID"
     static let STUDENT_ID_KEY = "studentLatestID"
+    static let LogsToReturnFromFetchingFirebase: UInt = 60
     
     static let dateFormatter: DateFormatter = DateFormatter()
     static let hourFormatter:DateFormatter = DateFormatter()

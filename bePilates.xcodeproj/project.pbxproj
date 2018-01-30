@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D00065720059C4E00795D4E /* ReportMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D00065620059C4E00795D4E /* ReportMaker.swift */; };
+		7D00065C20059CD500795D4E /* descriptionTable.html in Resources */ = {isa = PBXBuildFile; fileRef = 7D00065820059CD400795D4E /* descriptionTable.html */; };
+		7D00065D20059CD500795D4E /* aRow.html in Resources */ = {isa = PBXBuildFile; fileRef = 7D00065920059CD400795D4E /* aRow.html */; };
+		7D00065E20059CD500795D4E /* lastRow.html in Resources */ = {isa = PBXBuildFile; fileRef = 7D00065A20059CD400795D4E /* lastRow.html */; };
+		7D00065F20059CD500795D4E /* base.html in Resources */ = {isa = PBXBuildFile; fileRef = 7D00065B20059CD400795D4E /* base.html */; };
+		7D0006632005D8BD00795D4E /* PageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0006622005D8BD00795D4E /* PageRenderer.swift */; };
 		7D5E529E1FD5237100B60C98 /* AddEditLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */; };
+		7D623CCA20073919006ED913 /* PDFViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D623CC920073919006ED913 /* PDFViewerViewController.swift */; };
 		7DC11CEA1FD3272800B952EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC11CE91FD3272800B952EF /* AppDelegate.swift */; };
 		7DC11CEF1FD3272800B952EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC11CED1FD3272800B952EF /* Main.storyboard */; };
 		7DC11CF11FD3272800B952EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC11CF01FD3272800B952EF /* Assets.xcassets */; };
@@ -30,7 +37,14 @@
 /* Begin PBXFileReference section */
 		0DC8E3DCE5014F9510642219 /* Pods_bePilates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bePilates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70222AA75925D60507B82159 /* Pods-bePilates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bePilates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bePilates/Pods-bePilates.debug.xcconfig"; sourceTree = "<group>"; };
+		7D00065620059C4E00795D4E /* ReportMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMaker.swift; sourceTree = "<group>"; };
+		7D00065820059CD400795D4E /* descriptionTable.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = descriptionTable.html; sourceTree = "<group>"; };
+		7D00065920059CD400795D4E /* aRow.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aRow.html; sourceTree = "<group>"; };
+		7D00065A20059CD400795D4E /* lastRow.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = lastRow.html; sourceTree = "<group>"; };
+		7D00065B20059CD400795D4E /* base.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = base.html; sourceTree = "<group>"; };
+		7D0006622005D8BD00795D4E /* PageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRenderer.swift; sourceTree = "<group>"; };
 		7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditLogViewController.swift; sourceTree = "<group>"; };
+		7D623CC920073919006ED913 /* PDFViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerViewController.swift; sourceTree = "<group>"; };
 		7DC11CE61FD3272800B952EF /* bePilates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bePilates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC11CE91FD3272800B952EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DC11CEE1FD3272800B952EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +87,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7D7106BD2008A2FA006BD31F /* PDFHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				7D00065620059C4E00795D4E /* ReportMaker.swift */,
+				7D0006622005D8BD00795D4E /* PageRenderer.swift */,
+				7D7106BE2008A31F006BD31F /* HTMLTemplates */,
+			);
+			path = PDFHelpers;
+			sourceTree = "<group>";
+		};
+		7D7106BE2008A31F006BD31F /* HTMLTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				7D00065920059CD400795D4E /* aRow.html */,
+				7D00065A20059CD400795D4E /* lastRow.html */,
+				7D00065B20059CD400795D4E /* base.html */,
+				7D00065820059CD400795D4E /* descriptionTable.html */,
+			);
+			path = HTMLTemplates;
+			sourceTree = "<group>";
+		};
 		7DC11CDD1FD3272800B952EF = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +131,7 @@
 			children = (
 				7DC11D081FD3761F00B952EF /* View */,
 				7DC11D051FD3720300B952EF /* Controller */,
+				7D7106BD2008A2FA006BD31F /* PDFHelpers */,
 				7DC11D001FD3379300B952EF /* Singleton */,
 				7DC11CFB1FD3277400B952EF /* Model */,
 				7DC11CE91FD3272800B952EF /* AppDelegate.swift */,
@@ -136,6 +172,7 @@
 				7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */,
 				7DFF4AB81FD90D8600A707BE /* StudentsSelectionViewController.swift */,
 				7DF4E9A91FDA648600F6C4E1 /* AddEditAStudentViewController.swift */,
+				7D623CC920073919006ED913 /* PDFViewerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,7 +258,11 @@
 				7DC11CF41FD3272800B952EF /* LaunchScreen.storyboard in Resources */,
 				7DD803911FE5CBC300D03304 /* GoogleService-Info.plist in Resources */,
 				7DC11CF11FD3272800B952EF /* Assets.xcassets in Resources */,
+				7D00065C20059CD500795D4E /* descriptionTable.html in Resources */,
 				7DC11CEF1FD3272800B952EF /* Main.storyboard in Resources */,
+				7D00065D20059CD500795D4E /* aRow.html in Resources */,
+				7D00065E20059CD500795D4E /* lastRow.html in Resources */,
+				7D00065F20059CD500795D4E /* base.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +332,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DC11CEA1FD3272800B952EF /* AppDelegate.swift in Sources */,
+				7D0006632005D8BD00795D4E /* PageRenderer.swift in Sources */,
 				7D5E529E1FD5237100B60C98 /* AddEditLogViewController.swift in Sources */,
+				7D623CCA20073919006ED913 /* PDFViewerViewController.swift in Sources */,
 				7DFF4AB91FD90D8600A707BE /* StudentsSelectionViewController.swift in Sources */,
 				7DD803931FE603B800D03304 /* DataService.swift in Sources */,
 				7DC11CFD1FD327BD00B952EF /* SessionLog.swift in Sources */,
@@ -300,6 +343,7 @@
 				7DE9B9241FEC69A600E16232 /* Manager.swift in Sources */,
 				7DF4E9AA1FDA648600F6C4E1 /* AddEditAStudentViewController.swift in Sources */,
 				7DECCFDB1FDE837200394345 /* StudentsManager.swift in Sources */,
+				7D00065720059C4E00795D4E /* ReportMaker.swift in Sources */,
 				7DC11D0A1FD3763F00B952EF /* LogCell.swift in Sources */,
 				7DC11CFF1FD333F400B952EF /* Student.swift in Sources */,
 				7DC11D071FD3722800B952EF /* RecordsViewController.swift in Sources */,

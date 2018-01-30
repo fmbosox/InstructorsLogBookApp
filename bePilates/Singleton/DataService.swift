@@ -7,8 +7,6 @@
 //
 /*  Defined a class DataService with a class property or Singleton, it also has 2 properties and 9 methods
  
- The singleton will have the capacity to store objects of Student.
- So it has an array named info to store the data, and latestId to keep track of the latest ID assigned.
  
 The getStudents method gets students from the Snapshot.
  
@@ -71,6 +69,9 @@ class DataService {
             if let latesLogId = dataLogLatestID.value as? Int, let latesStudentId = dataStudentLatestID.value as? Int  {
                 InstructorRecords.instance.latestId = latesLogId
                 StudentsManager.instance.latestId = latesStudentId
+                print("User Defaults....")
+                print(InstructorRecords.instance.latestId)
+                print(StudentsManager.instance.latestId)
             } else {
                 InstructorRecords.instance.latestId = 0
                  StudentsManager.instance.latestId = 0
@@ -78,11 +79,19 @@ class DataService {
     }
     
     func fetchFromFireBase () {
-            reference.observeSingleEvent(of: .value) { (allData) in
-                self.getStudents(data: allData.childSnapshot(forPath: PropertyKeys.STUDENTS_PATH))
-                self.getLogsRecord(data: allData.childSnapshot(forPath: PropertyKeys.RECORD_PATH))
-                self.getUserDefaults(dataLogLatestID: allData.childSnapshot(forPath:  PropertyKeys.LOGID_PATH), dataStudentLatestID: allData.childSnapshot(forPath:PropertyKeys.STUDENT_ID_PATH))
-            }
+     
+        reference.child(PropertyKeys.USERDEFAULTS_PATH).observeSingleEvent(of: .value) { (userDefaultsData) in
+            self.getUserDefaults(dataLogLatestID: userDefaultsData.childSnapshot(forPath: PropertyKeys.LOGID_KEY), dataStudentLatestID: userDefaultsData.childSnapshot(forPath:PropertyKeys.STUDENT_ID_KEY))
+        }
+        reference.child(PropertyKeys.RECORD_PATH).queryLimited(toLast: PropertyKeys.LogsToReturnFromFetchingFirebase).observeSingleEvent(of: DataEventType.value) { (latestLogData) in
+            self.getLogsRecord(data: latestLogData)
+        }
+    
+        reference.child(PropertyKeys.STUDENTS_PATH).observeSingleEvent(of: .value) { (otherData) in
+            self.getStudents(data: otherData)
+        }
+    
+  
     }
     
     func saveLogToFireBase (log: SessionLog){

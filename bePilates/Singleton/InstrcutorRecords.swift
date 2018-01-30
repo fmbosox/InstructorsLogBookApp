@@ -42,8 +42,37 @@ class InstructorRecords {
                 return logOne.date > logTwo.date
             })
     }
-
+    //#new
+    func filterRecordsByTypeFromLast (_ range: DateInterval) ->  Dictionary<String, [SessionLog]>  {
+        var recordsWithinRange : [SessionLog]
+        // first applied a filter to include only the records
+        recordsWithinRange = InstructorRecords.instance.info.filter({ (aLog) -> Bool in
+            return  range.contains(aLog.date)
+        })
+        print("testing the filtering method....")
+        print(InstructorRecords.instance.info.count)
+        print(recordsWithinRange.count)
+        // then applied a filter to form a dictionary
+        
+        var aDictionaryWithLogs: [String : [SessionLog]] = ["Pilates con Aparatos": [], "Pilates MAT": [], "Fitness Aereo": []]
+        for aRecord in recordsWithinRange {
+            switch aRecord.type as SessionType{
+            case .GAP, .CANCELLED_GAP : aDictionaryWithLogs["Pilates con Aparatos"]!.append(aRecord) // Poner en property KEys
+            case .MAT, .CANCELLED_MAT : aDictionaryWithLogs["Pilates MAT"]!.append(aRecord)
+                case .AERO, .CANCELLED_AERO : aDictionaryWithLogs["Fitness Aereo"]!.append(aRecord)
+            }
+        }
+        
+        print("testing the second filtering method....")
+        print(recordsWithinRange.count)
+        print("GAP: \(aDictionaryWithLogs["Pilates con Aparatos"]!.count)")
+        print("MAT: \(aDictionaryWithLogs["Pilates MAT"]!.count)")
+        return aDictionaryWithLogs
+    }
+    
 }
+
+
 
     //MARK: - Manager protocol methods
 

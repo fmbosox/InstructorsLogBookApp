@@ -17,8 +17,22 @@ import Foundation
 enum SessionType: String {
     case MAT
     case GAP
+    case AERO
     case CANCELLED_MAT  = "XMAT"
     case CANCELLED_GAP = "XGAP"
+    case CANCELLED_AERO = "XAERO"
+    
+    var price: Int {
+        switch self {
+            case .MAT:  return PropertyKeys.MAT_PRICE
+            case .GAP: return PropertyKeys.GAP_PRICE
+            case .CANCELLED_MAT: return PropertyKeys.CANCELLED_MAT_PRICE
+            case .CANCELLED_GAP: return PropertyKeys.CANCELLED_GAP_PRICE
+            case .AERO: return PropertyKeys.AERO_PRICE
+            case .CANCELLED_AERO: return PropertyKeys.CANCELLED_AERO_PRICE
+        }
+    }
+    
 }
 
 struct SessionLog {
