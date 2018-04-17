@@ -12,6 +12,9 @@ class RecordsViewController: UIViewController {
     
     //MARK: Variables
     
+    
+    
+    
     @IBOutlet weak var tableView: UITableView!
     var logForSelectedRow: SessionLog?
     var tableViewCellAnimationType: AnimationType = .none
@@ -24,34 +27,27 @@ class RecordsViewController: UIViewController {
         tableView.dataSource = self
         DataService.instance.delegate = self
         tableViewCellAnimationType = .scrolling
-        navigationItem.title = "Linda Valdez"
+        navigationItem.title = "Records"
         InstructorRecords.instance.orderByNewest()
+        
     }
     
     @IBAction func addLogButtonPressed(_ sender: UIButton) {
         aButtonAnimation(animate: sender )
     }
     
-    @IBAction func instructorIconPressed(_ sender: Any) {
-        performSegue(withIdentifier: "showReportSegue", sender: nil)
-    }
+
     
     // MARK:  Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditLogSegue" {
-        let AddEditLogViewController = segue.destination as! AddEditLogViewController
+        if segue.identifier == "Edit Log Segue" {
+        let AddEditLogViewController = segue.destination as! EditLogViewController
         let indexPathForSelectedRow = tableView.indexPathForSelectedRow!
         let selectedIndex = indexPathForSelectedRow.row
         logForSelectedRow = InstructorRecords.instance.info[selectedIndex]
         AddEditLogViewController.selectedIndex =  selectedIndex
-        } else if segue.identifier == "showReportSegue" {
-            let startDate = Date(timeInterval: -2600000, since: Date())
-            let endDate = Date()
-            let aPDF = ReportMaker(instructorName: "Linda Valdez", email: "linda.trece@hotmail.com", startDate: startDate, endDate: endDate).makePDF()
-            let PDFViewerViewController = segue.destination as! PDFViewerViewController
-            PDFViewerViewController.pdfDocument = aPDF
-        }
+        } 
     }
     
     @IBAction func unwindToRecordsViewController (segue: UIStoryboardSegue ){

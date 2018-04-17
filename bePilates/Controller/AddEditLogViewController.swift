@@ -17,7 +17,6 @@ class AddEditLogViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var addStudentsButton: UIButton!
     @IBOutlet weak var cancelSessionButton: UIButton!
-    @IBOutlet weak var recordLabel: UILabel!
     
     var selectedIndex: Int?
     var students: [Student] = []
@@ -28,7 +27,7 @@ class AddEditLogViewController: UIViewController {
         that the users wants to see, using the following method
     */
     func setLogInformation(with log:SessionLog) {
-        recordLabel.text = "Record Info"
+       // recordLabel.text = "Record Info"
         switch log.type as SessionType {
         case .GAP, .CANCELLED_GAP: sessionTypeSegmentedControl.selectedSegmentIndex = 0
         case .MAT, .CANCELLED_MAT: sessionTypeSegmentedControl.selectedSegmentIndex = 1

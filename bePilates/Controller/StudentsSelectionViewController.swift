@@ -12,11 +12,12 @@ class StudentsSelectionViewController: UIViewController {
     
     // MARK: - Variables
     
+    @IBOutlet weak var doneButton: UIBarButtonItem?
+    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var SaveLogButtonStatus: UIButton!
-    @IBOutlet weak var addStudentButtonStatus: UIButton!
     
     var students: [Student] = []
+    var onlyViewFlag = false
     var studentsInSaveBuffer: [Int:Student] = [:]
     
     // MARK: - Initial Setup
@@ -72,11 +73,13 @@ class StudentsSelectionViewController: UIViewController {
 
     // MARK: - Navigation
     
+   // let destination: UIViewController?
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "UnwindToAcceptSave" {
+           if segue.identifier == "Unwind to Session VC" {
                 saveStudentsInSession()
-               let destination = segue.destination as! AddEditLogViewController
-                destination.students = students
+               let destination = segue.destination as? AddNewLogViewController
+                destination!.students = students
         }
         guard segue.identifier == "ShowAStudentSegue" else { return }
             let anotherDestination = segue.destination as! AddEditAStudentViewController
@@ -94,17 +97,29 @@ class StudentsSelectionViewController: UIViewController {
     // MARK: - User interaction methods
 
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
-        navigationItem.leftBarButtonItem!.isEnabled = !navigationItem.leftBarButtonItem!.isEnabled
-        tableView.setEditing(!tableView.isEditing, animated: true)
-        addStudentButtonStatus.isHidden = !tableView.isEditing
-        SaveLogButtonStatus.isHidden = !addStudentButtonStatus.isHidden
-        if !addStudentButtonStatus.isHidden{
-            sender.title = "Done"
-            sender.style = .done
+        
+        if onlyViewFlag {
+            tableView.setEditing(!tableView.isEditing, animated: true)
+            
+            if sender.style == .plain {
+                sender.style = .done
+            } else {
+                sender.style = .plain
+            }
+            
         } else {
-            sender.title = "Edit"
-            sender.style = .plain
+            navigationItem.leftBarButtonItem!.isEnabled = !navigationItem.leftBarButtonItem!.isEnabled
+            tableView.setEditing(!tableView.isEditing, animated: true)
+            doneButton!.isEnabled = !tableView.isEditing
+            if !doneButton!.isEnabled{
+                sender.style = .done
+            } else {
+                sender.style = .plain
+            }
+            
         }
+        
+       
     }
  
 }
@@ -134,13 +149,16 @@ extension StudentsSelectionViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-            removeValueFromBuffer(forKey: indexPath.row)
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            studentsInSaveBuffer[indexPath.row] = StudentsManager.instance.info[indexPath.row]
-        }
+        
+        guard !onlyViewFlag else { return }
+        
+            if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .none
+                removeValueFromBuffer(forKey: indexPath.row)
+            } else {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                studentsInSaveBuffer[indexPath.row] = StudentsManager.instance.info[indexPath.row]
+            }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

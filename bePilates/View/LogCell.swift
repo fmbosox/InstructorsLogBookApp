@@ -70,7 +70,7 @@ class LogCell: UITableViewCell {
          if currentLog.type == SessionType.CANCELLED_GAP || currentLog.type == SessionType.CANCELLED_MAT {
                        studentsLabel.text =  "CANCELLED"
          } else {
-            studentsLabel.text = currentLog.studentsInSession.count < 3 ? currentLog.studentsInSession.flatMap({ (student) -> String? in
+            studentsLabel.text = currentLog.studentsInSession.count < 3 ? currentLog.studentsInSession.compactMap({ (student) -> String? in
                 return student.name
             }).joined(separator: ", ") + "."  :     currentLog.studentsInSession[0].name + ", " + currentLog.studentsInSession[1].name + " & \(currentLog.studentsInSession.count-2) more."
         }

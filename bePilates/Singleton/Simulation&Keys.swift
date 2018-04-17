@@ -36,7 +36,7 @@ struct PropertyKeys {
     static let STUDENT_ID_PATH = "/userDefaults/studentLatestID"
     static let LOGID_KEY = "logLatestID"
     static let STUDENT_ID_KEY = "studentLatestID"
-    static let LogsToReturnFromFetchingFirebase: UInt = 60
+    static let LogsToReturnFromFetchingFirebase: UInt = 85
     
     static let dateFormatter: DateFormatter = DateFormatter()
     static let hourFormatter:DateFormatter = DateFormatter()
