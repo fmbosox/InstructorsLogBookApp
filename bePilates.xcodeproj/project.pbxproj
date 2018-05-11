@@ -13,11 +13,14 @@
 		7D00065E20059CD500795D4E /* lastRow.html in Resources */ = {isa = PBXBuildFile; fileRef = 7D00065A20059CD400795D4E /* lastRow.html */; };
 		7D00065F20059CD500795D4E /* base.html in Resources */ = {isa = PBXBuildFile; fileRef = 7D00065B20059CD400795D4E /* base.html */; };
 		7D0006632005D8BD00795D4E /* PageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0006622005D8BD00795D4E /* PageRenderer.swift */; };
+		7D37EE482087FEA600684EF6 /* StudentsHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D37EE472087FEA600684EF6 /* StudentsHomeViewController.swift */; };
 		7D52DB75207826B80037E086 /* InstructorHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D52DB74207826B80037E086 /* InstructorHomeViewController.swift */; };
 		7D5E529E1FD5237100B60C98 /* AddEditLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */; };
 		7D623CCA20073919006ED913 /* PDFViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D623CC920073919006ED913 /* PDFViewerViewController.swift */; };
+		7D64249520A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D64249420A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift */; };
 		7D6ED7FA20742DF100562A1F /* AddNewLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED7F920742DF100562A1F /* AddNewLogViewController.swift */; };
 		7D6ED7FC2075A9C800562A1F /* EditLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED7FB2075A9C800562A1F /* EditLogViewController.swift */; };
+		7D9E8EE32086A3A500AD5E80 /* StudentSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E8EE22086A3A500AD5E80 /* StudentSearchResultsTableViewController.swift */; };
 		7DC11CEA1FD3272800B952EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC11CE91FD3272800B952EF /* AppDelegate.swift */; };
 		7DC11CEF1FD3272800B952EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC11CED1FD3272800B952EF /* Main.storyboard */; };
 		7DC11CF11FD3272800B952EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC11CF01FD3272800B952EF /* Assets.xcassets */; };
@@ -46,11 +49,14 @@
 		7D00065A20059CD400795D4E /* lastRow.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = lastRow.html; sourceTree = "<group>"; };
 		7D00065B20059CD400795D4E /* base.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = base.html; sourceTree = "<group>"; };
 		7D0006622005D8BD00795D4E /* PageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRenderer.swift; sourceTree = "<group>"; };
+		7D37EE472087FEA600684EF6 /* StudentsHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsHomeViewController.swift; sourceTree = "<group>"; };
 		7D52DB74207826B80037E086 /* InstructorHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorHomeViewController.swift; sourceTree = "<group>"; };
 		7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditLogViewController.swift; sourceTree = "<group>"; };
 		7D623CC920073919006ED913 /* PDFViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerViewController.swift; sourceTree = "<group>"; };
+		7D64249420A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentToSessionCollectionViewController.swift; sourceTree = "<group>"; };
 		7D6ED7F920742DF100562A1F /* AddNewLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLogViewController.swift; sourceTree = "<group>"; };
 		7D6ED7FB2075A9C800562A1F /* EditLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLogViewController.swift; sourceTree = "<group>"; };
+		7D9E8EE22086A3A500AD5E80 /* StudentSearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentSearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		7DC11CE61FD3272800B952EF /* bePilates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bePilates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC11CE91FD3272800B952EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DC11CEE1FD3272800B952EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,7 +148,6 @@
 				7DC11CFB1FD3277400B952EF /* Model */,
 				7DC11CE91FD3272800B952EF /* AppDelegate.swift */,
 				7DC11CED1FD3272800B952EF /* Main.storyboard */,
-				7DC11CF01FD3272800B952EF /* Assets.xcassets */,
 				7DC11CF21FD3272800B952EF /* LaunchScreen.storyboard */,
 				7DC11CF51FD3272800B952EF /* Info.plist */,
 				7DD803901FE5CBC300D03304 /* GoogleService-Info.plist */,
@@ -156,6 +161,7 @@
 				7DC11CFC1FD327BD00B952EF /* SessionLog.swift */,
 				7DC11CFE1FD333F400B952EF /* Student.swift */,
 				7DE9B9231FEC69A600E16232 /* Manager.swift */,
+				7DC11CF01FD3272800B952EF /* Assets.xcassets */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,11 +183,14 @@
 				7DC11D061FD3722800B952EF /* RecordsViewController.swift */,
 				7D6ED7F920742DF100562A1F /* AddNewLogViewController.swift */,
 				7D6ED7FB2075A9C800562A1F /* EditLogViewController.swift */,
-				7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */,
 				7DFF4AB81FD90D8600A707BE /* StudentsSelectionViewController.swift */,
+				7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */,
+				7D37EE472087FEA600684EF6 /* StudentsHomeViewController.swift */,
+				7D9E8EE22086A3A500AD5E80 /* StudentSearchResultsTableViewController.swift */,
 				7DF4E9A91FDA648600F6C4E1 /* AddEditAStudentViewController.swift */,
 				7D623CC920073919006ED913 /* PDFViewerViewController.swift */,
 				7D52DB74207826B80037E086 /* InstructorHomeViewController.swift */,
+				7D64249420A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -346,12 +355,15 @@
 				7D5E529E1FD5237100B60C98 /* AddEditLogViewController.swift in Sources */,
 				7D623CCA20073919006ED913 /* PDFViewerViewController.swift in Sources */,
 				7DFF4AB91FD90D8600A707BE /* StudentsSelectionViewController.swift in Sources */,
+				7D64249520A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift in Sources */,
 				7DD803931FE603B800D03304 /* DataService.swift in Sources */,
 				7DC11CFD1FD327BD00B952EF /* SessionLog.swift in Sources */,
+				7D37EE482087FEA600684EF6 /* StudentsHomeViewController.swift in Sources */,
 				7DC11D041FD3647F00B952EF /* Simulation&Keys.swift in Sources */,
 				7DC11D021FD33B9400B952EF /* InstrcutorRecords.swift in Sources */,
 				7DE9B9241FEC69A600E16232 /* Manager.swift in Sources */,
 				7DF4E9AA1FDA648600F6C4E1 /* AddEditAStudentViewController.swift in Sources */,
+				7D9E8EE32086A3A500AD5E80 /* StudentSearchResultsTableViewController.swift in Sources */,
 				7DECCFDB1FDE837200394345 /* StudentsManager.swift in Sources */,
 				7D00065720059C4E00795D4E /* ReportMaker.swift in Sources */,
 				7DC11D0A1FD3763F00B952EF /* LogCell.swift in Sources */,

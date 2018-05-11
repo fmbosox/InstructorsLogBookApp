@@ -18,6 +18,11 @@ class AddEditAStudentViewController: UIViewController {
     @IBOutlet weak var observationsTextView: UITextView!
     @IBOutlet weak var stackViewofForm: UIStackView!
     
+    
+    @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var navItem: UINavigationItem!
+   // @IBOutlet weak var navigationBar:UINavigationBar!
+    
     var selectedIndex: Int?
 
         // MARK: - Initial Setup
@@ -29,19 +34,26 @@ class AddEditAStudentViewController: UIViewController {
         view.endEditing(true)
     }
     
+
+
+
+    
     func initalConfiguration() {
         nameTextField.delegate = self
         lastNameTextField.delegate = self
         emailTextField.delegate = self
         observationsTextView.delegate = self
-        navigationItem.rightBarButtonItem!.isEnabled = false
+  
+         rightBarButtonItem.isEnabled = true
+
         observationsTextView.text = ""
         let tap = UITapGestureRecognizer(target: self, action:
             #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         if let unwrappedSelectedIndex = selectedIndex {
-            navigationItem.title = StudentsManager.instance.info[unwrappedSelectedIndex].name + " " + StudentsManager.instance.info[unwrappedSelectedIndex].lastName
+            navItem.title = StudentsManager.instance.info[unwrappedSelectedIndex].name + " " + StudentsManager.instance.info[unwrappedSelectedIndex].lastName
+            
             nameTextField.text = StudentsManager.instance.info[unwrappedSelectedIndex].name
             lastNameTextField.text = StudentsManager.instance.info[unwrappedSelectedIndex].lastName
             emailTextField.text = StudentsManager.instance.info[unwrappedSelectedIndex].email
@@ -54,6 +66,7 @@ class AddEditAStudentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          initalConfiguration()
+
     }
 
         // MARK: - Saving a Student.
@@ -76,19 +89,13 @@ class AddEditAStudentViewController: UIViewController {
         }
     }
     
-    func enableRightBarButtonItem() {
-        if let text1 = nameTextField.text, let text2 = lastNameTextField.text {
-            if !text1.isEmpty && !text2.isEmpty {
-                navigationItem.rightBarButtonItem!.isEnabled = true
-            }
-        }
-    }
     
     // MARK: - Navigation
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "SaveAStudentUnwind" else { return }
-            saveStudent()
+    
+    @IBAction func dismissVC(sender: Any?){
+        saveStudent()
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
@@ -100,14 +107,6 @@ extension AddEditAStudentViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        enableRightBarButtonItem()
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        enableRightBarButtonItem()
-        return true
-    }
     
 }
 

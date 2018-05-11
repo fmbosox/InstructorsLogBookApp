@@ -12,35 +12,25 @@ class StudentsSelectionViewController: UIViewController {
     
     // MARK: - Variables
     
-    @IBOutlet weak var doneButton: UIBarButtonItem?
+    @IBOutlet weak var doneButton: UIButton!
+    
+    @IBOutlet weak var searchBar: UISearchBar! 
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    var studentsToShow: [Student] = StudentsManager.instance.info
     var students: [Student] = []
     var onlyViewFlag = false
-    var studentsInSaveBuffer: [Int:Student] = [:]
+    var studentsInSaveBuffer: [Student] = []
     
     // MARK: - Initial Setup
-    
-    func setInitialStudentsBuffer() {
-        for aStudent in students {
-            let index = StudentsManager.instance.info.index(where: { (student) -> Bool in
-                aStudent.id == student.id
-            })
-            if let unwrappedIndex = index {
-                studentsInSaveBuffer[unwrappedIndex] = aStudent
-            }
-        }
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        setInitialStudentsBuffer()
-        if StudentsManager.instance.info.isEmpty {
-            editButtonPressed(self.navigationItem.rightBarButtonItem!)
-        }
+        searchBar.delegate = self
     }
 
     //MARK: - Adding & Removing students to a Log.
@@ -50,30 +40,30 @@ class StudentsSelectionViewController: UIViewController {
     */
     func saveStudentsInSession() {
         students.removeAll()
-        for value in studentsInSaveBuffer.values {
+        for value in studentsInSaveBuffer {
             students.append(value)
         }
         studentsInSaveBuffer.removeAll()
     }
     
+    
+    
     /*If a Log is being edited,
      this method helps to set the checkmark to the corresponding studentinSession.
-    */
-    func removeValueFromBuffer(forKey key: Int, update: Bool = false) {
-        studentsInSaveBuffer.removeValue(forKey: key)
-        if update {
-            for index in key...StudentsManager.instance.info.count {
-                if let aStudent = studentsInSaveBuffer.removeValue(forKey: index) {
-                    studentsInSaveBuffer.updateValue(aStudent, forKey: index-1)
-                }
-                
-            }
+     */
+    func removeValueFromBuffer(for row: Int) {
+        let index = studentsInSaveBuffer.index { (aStudent) -> Bool in
+            aStudent.id == studentsToShow[row].id
         }
+        if let index = index {
+            studentsInSaveBuffer.remove(at: index)
+        }
+        
+        
     }
-
+    
     // MARK: - Navigation
     
-   // let destination: UIViewController?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "Unwind to Session VC" {
@@ -81,59 +71,26 @@ class StudentsSelectionViewController: UIViewController {
                let destination = segue.destination as? AddNewLogViewController
                 destination!.students = students
         }
-        guard segue.identifier == "ShowAStudentSegue" else { return }
-            let anotherDestination = segue.destination as! AddEditAStudentViewController
-            let indexPath = sender as! IndexPath
-            print(indexPath)
-            anotherDestination.selectedIndex = indexPath.row
      }
-    
-    @IBAction func unwindToStudentsSelectionViewController  (segue: UIStoryboardSegue ){
-        if segue.identifier == "SaveAStudentUnwind" {
-                tableView.reloadData()
-        }
-    }
     
     // MARK: - User interaction methods
 
-    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
-        
-        if onlyViewFlag {
-            tableView.setEditing(!tableView.isEditing, animated: true)
-            
-            if sender.style == .plain {
-                sender.style = .done
-            } else {
-                sender.style = .plain
-            }
-            
-        } else {
-            navigationItem.leftBarButtonItem!.isEnabled = !navigationItem.leftBarButtonItem!.isEnabled
-            tableView.setEditing(!tableView.isEditing, animated: true)
-            doneButton!.isEnabled = !tableView.isEditing
-            if !doneButton!.isEnabled{
-                sender.style = .done
-            } else {
-                sender.style = .plain
-            }
-            
-        }
-        
-       
-    }
- 
+    
 }
+    
+    
+
 
     // MARK: - Table view config
 
 extension StudentsSelectionViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func setAccesoryType(of aStudent: Student?) -> UITableViewCellAccessoryType{
-        return aStudent != nil ? .checkmark : .none
+    func setAccesoryType(for indexPath: IndexPath) -> UITableViewCellAccessoryType{
+       return studentsInSaveBuffer.map { $0.id }.contains(studentsToShow[indexPath.row].id)    ?   .checkmark : .none
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  StudentsManager.instance.info.count
+        return  studentsToShow.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -142,9 +99,10 @@ extension StudentsSelectionViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
-        cell.accessoryType = setAccesoryType(of: studentsInSaveBuffer[indexPath.row])
         
-        cell.textLabel?.text = StudentsManager.instance.info[indexPath.row].name + " " + StudentsManager.instance.info[indexPath.row].lastName
+        cell.accessoryType = setAccesoryType(for: indexPath)
+        
+        cell.textLabel?.text = studentsToShow[indexPath.row].name + " " + studentsToShow[indexPath.row].lastName
         return cell
     }
     
@@ -154,10 +112,10 @@ extension StudentsSelectionViewController: UITableViewDelegate, UITableViewDataS
         
             if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .none
-                removeValueFromBuffer(forKey: indexPath.row)
+                removeValueFromBuffer(for: indexPath.row)
             } else {
                 tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-                studentsInSaveBuffer[indexPath.row] = StudentsManager.instance.info[indexPath.row]
+                studentsInSaveBuffer.append(studentsToShow[indexPath.row])
             }
     }
     
@@ -166,20 +124,56 @@ extension StudentsSelectionViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return false
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete {
-            StudentsManager.instance.removeAt(indexPath.row)
-            removeValueFromBuffer(forKey: indexPath.row, update: true)
-           tableView.reloadData()
-        
-        }
-    }
-
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowAStudentSegue", sender: indexPath)
-    }
 
 }
+
+
+
+
+
+
+extension StudentsSelectionViewController:  UISearchBarDelegate {
+ 
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            studentsToShow = StudentsManager.instance.info
+        } else {
+            print("searchBar text did change")
+            studentsToShow = StudentsManager.instance.info.filter({ (aStudent) -> Bool in
+                aStudent.name.contains(searchText)
+            })
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("SearchBar text end editign")
+        if studentsToShow.count != StudentsManager.instance.info.count {
+             studentsToShow = StudentsManager.instance.info
+              tableView.reloadData()
+        }
+       
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("Cancel button tapped")
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Search button tapped")
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        
+       
+    }
+    
+    
+    
+}
+

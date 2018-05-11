@@ -115,7 +115,8 @@ class AddNewLogViewController: UIViewController {
     
         @IBAction func unwindToAddNewLogVC(segue: UIStoryboardSegue) {
            // get the students from students selection.
-            print("I am back")
+            print("I am back with \(students.count) students")
+            print(students.forEach {  print($0.name) })
             toggleButtons()
         }
     
@@ -133,7 +134,7 @@ class AddNewLogViewController: UIViewController {
         }
     
         @IBAction func addStudentsButtonPressed(_ sender: Any) {
-           print("Segue for to get students")
+           print("Segue to get students")
         }
         
 }

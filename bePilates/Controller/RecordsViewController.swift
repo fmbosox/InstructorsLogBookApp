@@ -13,14 +13,73 @@ class RecordsViewController: UIViewController {
     //MARK: Variables
     
     
-    
-    
+    var activityIndicator: UIActivityIndicatorView?
+    @IBOutlet weak var addLogButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var logForSelectedRow: SessionLog?
     var tableViewCellAnimationType: AnimationType = .none
     
+    
+    func toggleSearchBar () {
+        
+    UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 12.42,
+                                                   delay: 0.0,
+                                                   options: .curveLinear,
+                                                   animations: { if self.searchBar.isHidden {
+                                                    self.searchBar.frame.size.height = 0.0
+                                                    
+                                                    }  },
+                                                   completion: nil)
+        searchBar.isHidden = !searchBar.isHidden
+        addLogButton.isHidden = !searchBar.isHidden
+        
+    }
+    
+    @objc func swipeAndShowSearchBar(gesture: UIGestureRecognizer){
+        
+        guard let gesture = gesture as? UIPanGestureRecognizer else { return }
+        
+        switch gesture.state {
+        case .began:
+            if gesture.translation(in: self.view).y > 0.5 {
+                toggleSearchBar()
+            }
+            if gesture.translation(in: self.view).y < -0.5 {
+                toggleSearchBar()
+            }
+        default:
+            return
+        }
+    }
+    
+    
+   
+    
     //MARK: Initial Setup
     
+    let searchBar: UISearchBar = UISearchBar(frame: CGRect(origin: CGPoint.zero, size: CGSize.zero))
+    
+    @IBOutlet weak var backGroundView: UIView! {
+        didSet{
+            //Search functionality
+            let swipeDown = UIPanGestureRecognizer(target: self, action: #selector(swipeAndShowSearchBar(gesture:)))
+            swipeDown.maximumNumberOfTouches = 1
+            backGroundView.addGestureRecognizer(swipeDown)
+        }
+    }
+
+    
+    
+    func setSearchBar () {
+        searchBar.searchBarStyle = .default
+        searchBar.placeholder = "Search for a Class"
+        searchBar.scopeButtonTitles = ["By Students", "MAT","GAP","AERO"]
+        searchBar.showsScopeBar = true
+        searchBar.selectedScopeButtonIndex = 0
+        searchBar.frame.size.width = self.view.frame.width
+        searchBar.frame.size.height = self.view.frame.height * 0.16
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -29,7 +88,12 @@ class RecordsViewController: UIViewController {
         tableViewCellAnimationType = .scrolling
         navigationItem.title = "Records"
         InstructorRecords.instance.orderByNewest()
+        setSearchBar()
         
+        backGroundView.addSubview(searchBar)
+        searchBar.isHidden = true
+        searchBar.delegate = self
+    
     }
     
     @IBAction func addLogButtonPressed(_ sender: UIButton) {
@@ -55,6 +119,16 @@ class RecordsViewController: UIViewController {
          InstructorRecords.instance.orderByNewest()
          tableView.reloadData()
          scrollToCell()
+    }
+    
+    
+    
+    @IBAction func searchButttonTapped (sender: Any?) {
+        if  searchBar.isHidden {
+            toggleSearchBar()
+        } else {
+            searchBar.text = nil
+        }
     }
 
 }
@@ -170,6 +244,100 @@ extension RecordsViewController {
         }
         logForSelectedRow = nil
     }
+    
+}
+
+
+extension RecordsViewController: UISearchBarDelegate {
+    
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("SearchBar text begin editign")
+      //  tableView.isHidden = true
+        //Put a search image on UI!!
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("SearchBar text end editign")
+//        if InstructorRecords.instance.unfilteredInfo?.count != InstructorRecords.instance.info.count {
+//            InstructorRecords.instance.info = InstructorRecords.instance.unfilteredInfo!
+//            tableView.reloadData()
+//        }
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        if searchBar.selectedScopeButtonIndex == 1 || searchBar.selectedScopeButtonIndex == 2 || searchBar.selectedScopeButtonIndex == 3 {
+            return false
+        }else {
+            return true
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("Cancel button tapped")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty, let info = InstructorRecords.instance.unfilteredInfo{
+            InstructorRecords.instance.info = info
+        } else {
+            print("searchBar text did change")
+            if searchBar.selectedScopeButtonIndex == 0 {
+                InstructorRecords.instance.filterByStudentsInClass(studentName: searchBar.text!)
+            }
+        }
+        showSearchResults()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Search button tapped")
+        searchBar.resignFirstResponder()
+//        if searchBar.selectedScopeButtonIndex == 0 {
+//            if searchBar.text != "" {
+//                InstructorRecords.instance.filterByStudentsInClass(studentName: searchBar.text!)
+//            }
+//            showSearchResults()
+//        }
+        
+    }
+    
+    
+    func showSearchResults () {
+        tableView.reloadData()
+        tableView.isHidden = false
+       // searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        print("Scope  did change")
+        
+        if selectedScope == 1 {
+              searchBar.text = ""
+            InstructorRecords.instance.filterByType(type: SessionType.MAT)
+            searchBar.placeholder = "\(InstructorRecords.instance.info.count) - MAT Sessions found"
+            showSearchResults ()
+            searchBar.resignFirstResponder()
+        }else if selectedScope == 2 {
+              searchBar.text = ""
+             InstructorRecords.instance.filterByType(type: SessionType.GAP)
+            searchBar.placeholder = "\(InstructorRecords.instance.info.count) - GAP Sessions found"
+            showSearchResults ()
+             searchBar.resignFirstResponder()
+        } else if selectedScope == 3 {
+              searchBar.text = ""
+             InstructorRecords.instance.filterByType(type: SessionType.AERO)
+            searchBar.placeholder = "\(InstructorRecords.instance.info.count) - AERO Sessions found"
+            showSearchResults ()
+             searchBar.resignFirstResponder()
+        } else {
+            searchBar.placeholder = "Search for a Student in a Class"
+            searchBar.text = ""
+            InstructorRecords.instance.info = InstructorRecords.instance.unfilteredInfo!
+            showSearchResults()
+        }
+    }
+    
     
 }
 

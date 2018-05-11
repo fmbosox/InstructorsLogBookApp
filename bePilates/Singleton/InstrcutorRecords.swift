@@ -25,6 +25,8 @@ class InstructorRecords {
     static let instance = InstructorRecords ()
     var info = [SessionLog]()
     var latestId = Int()
+    
+    var unfilteredInfo: [SessionLog]?
 
     //MARK: - Methods
     
@@ -37,6 +39,59 @@ class InstructorRecords {
             DataService.instance.saveUserDefaults()
     }
     
+    
+    func filterByType ( type: SessionType) {
+        if unfilteredInfo == nil {
+            unfilteredInfo = self.info
+        }
+     // then do the filter
+        var cancelledType: SessionType?
+        switch type {
+        case.AERO: cancelledType = .CANCELLED_AERO
+        case .GAP: cancelledType = .CANCELLED_GAP
+        case .MAT: cancelledType = .CANCELLED_MAT
+        default: break
+        }
+        InstructorRecords.instance.info = InstructorRecords.instance.unfilteredInfo!.filter({ (aSessionLog) -> Bool in
+           return aSessionLog.type == type || aSessionLog.type == cancelledType
+        })
+        
+    }
+    
+    
+    func filterByStudentsInClass ( studentName: String) {
+        if unfilteredInfo == nil {
+            unfilteredInfo = self.info
+        }
+        // then do the filter
+        let students =  StudentsManager.instance.info.filter { (aStudent) -> Bool in
+           return aStudent.name.capitalized.contains(studentName.capitalized)  || aStudent.lastName.capitalized.contains(studentName.capitalized)
+        }
+     
+        var sessionWithStudents = [SessionLog]()
+        for aStudent in students {
+          let possibleSessionWithStudents = InstructorRecords.instance.unfilteredInfo!.filter { (aSessionLog) -> Bool in
+               return aSessionLog.studentsInSession.contains(where: { (student) -> Bool in
+                   return student.name.capitalized == aStudent.name.capitalized
+                })
+            }
+            sessionWithStudents += possibleSessionWithStudents
+        }
+        
+        InstructorRecords.instance.info = sessionWithStudents
+        
+        
+    }
+    
+    func unfilter() {
+        if let info = unfilteredInfo {
+            self.info = info
+        }
+    }
+    
+    
+    
+    
     func orderByNewest(){
             InstructorRecords.instance.info = InstructorRecords.instance.info.sorted(by: { (logOne, logTwo) -> Bool in
                 return logOne.date > logTwo.date
@@ -44,6 +99,10 @@ class InstructorRecords {
     }
     //#new
     func filterRecordsByTypeFromLast (_ range: DateInterval) ->  Dictionary<String, [SessionLog]>  {
+        if unfilteredInfo != nil {
+            InstructorRecords.instance.info = unfilteredInfo!
+        }
+        
         var recordsWithinRange : [SessionLog]
         // first applied a filter to include only the records
         recordsWithinRange = InstructorRecords.instance.info.filter({ (aLog) -> Bool in
