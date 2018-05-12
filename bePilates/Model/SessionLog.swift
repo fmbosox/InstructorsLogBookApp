@@ -119,7 +119,7 @@ struct SessionLog {
             PropertyKeys.dateFormatter.timeStyle = .full
             aJSON["date"] = PropertyKeys.dateFormatter.string(from: self.date)
             aJSON["type"] = self._type.rawValue
-            aJSON["StudentsIds"] = _studentsInSession != nil  ? self._studentsInSession!.map({ (student) -> Int! in
+            aJSON["StudentsIds"] = _studentsInSession != nil  ? self._studentsInSession!.map({ (student) -> Int in
                 return student.id
             }) : nil
             return aJSON

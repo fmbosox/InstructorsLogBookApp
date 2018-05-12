@@ -73,7 +73,7 @@ class ReportMaker: NSObject {
                                         description = dateFormater.string(from: currentLogs[index].date) + " @ " + timeFormater.string(from: currentLogs[index].date)
                             
                                         if  currentLogs[index].studentsInSession.first!.name != "No Aplica" {
-                                            description  +=  "  **" + currentLogs[index].studentsInSession.flatMap({ (aStudent) -> String? in
+                                            description  +=  "  **" + currentLogs[index].studentsInSession.compactMap({ (aStudent) -> String? in
                                                 aStudent.name
                                             }).joined(separator: ", ")
                                         }
