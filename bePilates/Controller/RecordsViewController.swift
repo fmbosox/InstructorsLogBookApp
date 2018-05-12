@@ -22,51 +22,20 @@ class RecordsViewController: UIViewController {
     
     func toggleSearchBar () {
         
-    UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 12.42,
-                                                   delay: 0.0,
-                                                   options: .curveLinear,
-                                                   animations: { if self.searchBar.isHidden {
-                                                    self.searchBar.frame.size.height = 0.0
-                                                    
-                                                    }  },
-                                                   completion: nil)
         searchBar.isHidden = !searchBar.isHidden
         addLogButton.isHidden = !searchBar.isHidden
-        
-    }
-    
-    @objc func swipeAndShowSearchBar(gesture: UIGestureRecognizer){
-        
-        guard let gesture = gesture as? UIPanGestureRecognizer else { return }
-        
-        switch gesture.state {
-        case .began:
-            if gesture.translation(in: self.view).y > 0.5 {
-                toggleSearchBar()
-            }
-            if gesture.translation(in: self.view).y < -0.5 {
-                toggleSearchBar()
-            }
-        default:
-            return
+        if searchBar.isHidden {
+            searchBar.resignFirstResponder()
         }
     }
     
-    
-   
+
     
     //MARK: Initial Setup
     
     let searchBar: UISearchBar = UISearchBar(frame: CGRect(origin: CGPoint.zero, size: CGSize.zero))
     
-    @IBOutlet weak var backGroundView: UIView! {
-        didSet{
-            //Search functionality
-            let swipeDown = UIPanGestureRecognizer(target: self, action: #selector(swipeAndShowSearchBar(gesture:)))
-            swipeDown.maximumNumberOfTouches = 1
-            backGroundView.addGestureRecognizer(swipeDown)
-        }
-    }
+    @IBOutlet weak var backGroundView: UIView!
 
     
     
@@ -124,11 +93,7 @@ class RecordsViewController: UIViewController {
     
     
     @IBAction func searchButttonTapped (sender: Any?) {
-        if  searchBar.isHidden {
             toggleSearchBar()
-        } else {
-            searchBar.text = nil
-        }
     }
 
 }
@@ -194,7 +159,7 @@ extension RecordsViewController: DataServiceDelegate {
     
 }
 
-    //MARK: Animation logic
+    //MARK: Animation
 
 extension RecordsViewController {
     
@@ -250,22 +215,6 @@ extension RecordsViewController {
 
 extension RecordsViewController: UISearchBarDelegate {
     
-    
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("SearchBar text begin editign")
-      //  tableView.isHidden = true
-        //Put a search image on UI!!
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("SearchBar text end editign")
-//        if InstructorRecords.instance.unfilteredInfo?.count != InstructorRecords.instance.info.count {
-//            InstructorRecords.instance.info = InstructorRecords.instance.unfilteredInfo!
-//            tableView.reloadData()
-//        }
-    }
-    
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         if searchBar.selectedScopeButtonIndex == 1 || searchBar.selectedScopeButtonIndex == 2 || searchBar.selectedScopeButtonIndex == 3 {
             return false
@@ -292,21 +241,13 @@ extension RecordsViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Search button tapped")
-        searchBar.resignFirstResponder()
-//        if searchBar.selectedScopeButtonIndex == 0 {
-//            if searchBar.text != "" {
-//                InstructorRecords.instance.filterByStudentsInClass(studentName: searchBar.text!)
-//            }
-//            showSearchResults()
-//        }
-        
+        toggleSearchBar()
     }
     
     
     func showSearchResults () {
         tableView.reloadData()
         tableView.isHidden = false
-       // searchBar.resignFirstResponder()
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {

@@ -15,7 +15,6 @@
 		7D0006632005D8BD00795D4E /* PageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0006622005D8BD00795D4E /* PageRenderer.swift */; };
 		7D37EE482087FEA600684EF6 /* StudentsHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D37EE472087FEA600684EF6 /* StudentsHomeViewController.swift */; };
 		7D52DB75207826B80037E086 /* InstructorHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D52DB74207826B80037E086 /* InstructorHomeViewController.swift */; };
-		7D5E529E1FD5237100B60C98 /* AddEditLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */; };
 		7D623CCA20073919006ED913 /* PDFViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D623CC920073919006ED913 /* PDFViewerViewController.swift */; };
 		7D64249520A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D64249420A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift */; };
 		7D6ED7FA20742DF100562A1F /* AddNewLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6ED7F920742DF100562A1F /* AddNewLogViewController.swift */; };
@@ -51,7 +50,6 @@
 		7D0006622005D8BD00795D4E /* PageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRenderer.swift; sourceTree = "<group>"; };
 		7D37EE472087FEA600684EF6 /* StudentsHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsHomeViewController.swift; sourceTree = "<group>"; };
 		7D52DB74207826B80037E086 /* InstructorHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorHomeViewController.swift; sourceTree = "<group>"; };
-		7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditLogViewController.swift; sourceTree = "<group>"; };
 		7D623CC920073919006ED913 /* PDFViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerViewController.swift; sourceTree = "<group>"; };
 		7D64249420A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentToSessionCollectionViewController.swift; sourceTree = "<group>"; };
 		7D6ED7F920742DF100562A1F /* AddNewLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewLogViewController.swift; sourceTree = "<group>"; };
@@ -182,15 +180,14 @@
 			children = (
 				7DC11D061FD3722800B952EF /* RecordsViewController.swift */,
 				7D6ED7F920742DF100562A1F /* AddNewLogViewController.swift */,
+				7D64249420A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift */,
 				7D6ED7FB2075A9C800562A1F /* EditLogViewController.swift */,
 				7DFF4AB81FD90D8600A707BE /* StudentsSelectionViewController.swift */,
-				7D5E529D1FD5237100B60C98 /* AddEditLogViewController.swift */,
+				7D52DB74207826B80037E086 /* InstructorHomeViewController.swift */,
+				7D623CC920073919006ED913 /* PDFViewerViewController.swift */,
 				7D37EE472087FEA600684EF6 /* StudentsHomeViewController.swift */,
 				7D9E8EE22086A3A500AD5E80 /* StudentSearchResultsTableViewController.swift */,
 				7DF4E9A91FDA648600F6C4E1 /* AddEditAStudentViewController.swift */,
-				7D623CC920073919006ED913 /* PDFViewerViewController.swift */,
-				7D52DB74207826B80037E086 /* InstructorHomeViewController.swift */,
-				7D64249420A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -352,7 +349,6 @@
 				7DC11CEA1FD3272800B952EF /* AppDelegate.swift in Sources */,
 				7D52DB75207826B80037E086 /* InstructorHomeViewController.swift in Sources */,
 				7D0006632005D8BD00795D4E /* PageRenderer.swift in Sources */,
-				7D5E529E1FD5237100B60C98 /* AddEditLogViewController.swift in Sources */,
 				7D623CCA20073919006ED913 /* PDFViewerViewController.swift in Sources */,
 				7DFF4AB91FD90D8600A707BE /* StudentsSelectionViewController.swift in Sources */,
 				7D64249520A2A2D400F30628 /* AddStudentToSessionCollectionViewController.swift in Sources */,

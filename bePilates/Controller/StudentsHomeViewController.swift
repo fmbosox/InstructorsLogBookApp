@@ -103,18 +103,5 @@ extension StudentsHomeViewController: UISearchResultsUpdating, UISearchBarDelega
         searchBar.text = " "
     }
 
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        if searchBar.text == "" {
-//            searchBar.text? = " "
-//        }
-//    }
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchBar.text?.first == " " {
-//            _ = searchBar.text?.dropFirst()
-//        } else  if searchBar.text == "" {
-//            searchBar.text? = " "
-//        }
-//    }
     
 }
